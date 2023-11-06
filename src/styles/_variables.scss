@@ -1,0 +1,489 @@
+
+$colors: (
+    blue: #0066FF,
+    blue-hv: #0254CE,
+    blue-2: #4385F4,
+    blue-3: #88ADD2,
+    blue-4: #B3FFE5,
+    blue-5: #ECF3FE,
+    blue-6: #99C3FF,
+    blue-7: #8AE3F3,
+    blue-8: #AACCFF,
+    blue-floa: #009FFF,
+    purple: #7B3DFF,
+    purple-2: #F0E9FF,
+    grey: #F6F9FC,
+    grey-2: #E1F0FF,
+    grey-3: #88ADD2,
+    grey-4: #7C879C,
+    grey-5: #BAC5DB,
+    grey-6: #e3e3e3,
+    white: #ffffff,
+    black-blue: #001B4D,
+    black-blue-2: #001C46,
+    green: #4CD964,
+    green-2: #28a745,
+    green-floa: #00FF87,
+    yellow: #FFFCF1,
+    yellow-2: #FCEAC3,
+    yellow-3: #FBD2B9,
+    red: #FA393E,
+    danger: #FA393E,
+);
+
+$teal-colors: (
+    teal-90: #041E23,
+    teal-80: #10899F,
+    teal-70: #16B6D4,
+    teal-60: #27CBE9,
+    teal-50: #65DAEF,
+    teal-40: #8AE3F3,
+    teal-30: #A2E9F6,
+    teal-20: #C1F0F9,
+    teal-10: #E0F8FC,
+);
+
+$blue-colors: (
+    blue-90: #001C46,
+    blue-80: #002D9C,
+    blue-70: #0043CE,
+    blue-60: #0066FF,
+    blue-50: #4D94FF,
+    blue-40: #AACCFF,
+    blue-30: #C6DDFF,
+    blue-20: #E3EEFF,
+    blue-10: #EFF5FF,
+);
+
+$violet-colors: (
+    violet-90: #160044,
+    violet-80: #240071,
+    violet-70: #3A00B5,
+    violet-60: #7B3DFF,
+    violet-50: #9767FF,
+    violet-40: #BD9EFF,
+    violet-30: #D0BAFF,
+    violet-20: #E3D5FF,
+    violet-10: #F6F1FF,
+);
+
+$red-colors: (
+    red-90: #37080A,
+    red-80: #881319,
+    red-70: #BF1A23,
+    red-60: #DA1E28,
+    red-50: #E64C54,
+    red-40: #EF8C91,
+    red-30: #F4B2B6,
+    red-20: #F8CCCE,
+    red-10: #FADEE0,
+);
+
+$orange-colors: (
+    orange-90: #2E1300,
+    orange-80: #6A2C00,
+    orange-70: #C05000,
+    orange-60: #FF832B,
+    orange-50: #FF9549,
+    orange-40: #FFA668,
+    orange-30: #FFB886,
+    orange-20: #FFD3B3,
+    orange-10: #FFE4D2,
+);
+
+$yellow-colors: (
+    yellow-90: #322701,
+    yellow-80: #7E6202,
+    yellow-70: #E3B103,
+    yellow-60: #FCCA1D,
+    yellow-50: #FDDC69,
+    yellow-40: #FDE389,
+    yellow-30: #FEE99F,
+    yellow-20: #FEF0BF,
+    yellow-10: #FEF5D4
+);
+
+$green-colors: (
+    green-90: #041810,
+    green-80: #0B3B29,
+    green-70: #15734F,
+    green-60: #1EA672,
+    green-50: #25CC8C,
+    green-40: #67E4B4,
+    green-30: #8DEAC7,
+    green-20: #B3F1D9,
+    green-10: #D9F8EC
+);
+
+$neutral-colors: (
+    neutral-100: #000000,
+    neutral-90: #0D0D0E,
+    neutral-80: #3B3E42,
+    neutral-70: #6C7078,
+    neutral-60: #90939B,
+    neutral-50: #ADB0B6,
+    neutral-40: #C4C6CA,
+    neutral-30: #DADBDE,
+    neutral-20: #E9E9EB,
+    neutral-10: #F8F8F8,
+    neutral-00: #FFFFFF
+);
+
+$muted-blue-colors: (
+    muted-blue-90: #090B10,
+    muted-blue-80: #4D6087,
+    muted-blue-70: #8193B7,
+    muted-blue-60: #A1AEC9,
+    muted-blue-50: #B8C3D7,
+    muted-blue-30: #E0E5ED,
+    muted-blue-40: #D0D7E4,
+    muted-blue-20: #F0F2F6,
+    muted-blue-10: #F9FAFC
+);
+
+$obvy-colors: (
+    accent: map-get($blue-colors, blue-60),
+    danger: map-get($red-colors, red-60),
+    severe: map-get($orange-colors, orange-60),
+    warning: map-get($yellow-colors, yellow-60),
+    success: map-get($green-colors, green-60),
+    neutral: map-get($neutral-colors, neutral-70),
+    base: map-get($blue-colors, blue-90),
+);
+
+$obv-palette-colors:(
+  teal: $teal-colors,
+  blue: $blue-colors,
+  violet: $violet-colors,
+  red: $red-colors,
+  orange: $orange-colors,
+  yellow: $yellow-colors,
+  green: $green-colors,
+  neutral: $neutral-colors,
+  muted-blue: $muted-blue-colors,
+  obvy: $obvy-colors
+);
+
+
+$obvy-font-size: (
+    10: 0.75rem, // 12px
+    20: 0.875rem, // 14px
+    30: 1rem, // 16px
+    40: 1.25rem, // 20px
+    50: 1.5rem, // 24px
+    60: 1.75rem, // 28px
+    70: 2rem // 32px
+);
+
+$obvy-border-size: (
+    10: 1px,
+    20: 2px,
+    30: 3px,
+    40: 4px
+);
+
+$obvy-font-weight:(
+  300: 300,
+  regular: 400,
+  500: 500,
+  bold: 600,
+  700: 700,
+  800: 800,
+  900: 900
+);
+
+$obvy-font-line-height:(
+  10: 1rem,
+  20: 1.125rem,
+  30: 1.25rem,
+  40: 1.5rem,
+  50: 1.75rem,
+  60: 2.25rem
+);
+
+$obvy-font-letter-spacing:(
+  00: 0px,
+  10: 0.16px,
+  20: 0.32px
+);
+
+@each $name, $value in $obvy-font-line-height {
+    .obv-text-lh-#{$name} {
+        line-height: $value!important;
+    }
+};
+
+@each $name, $value in $obvy-font-weight {
+    .obv-text-fw-#{$name} {
+        font-weight: $value!important;
+    }
+};
+
+@each $name, $value in $obvy-font-size {
+    .obv-text-fs-#{$name} {
+        font-size: $value;
+    }
+};
+
+@each $color, $colorValue in $obv-palette-colors {
+  @each $name, $value in $colorValue {
+      .obv-bg-#{$name} {
+        background-color: $value;
+      }
+
+      .obv-text-#{$name} {
+          color: $value;
+      }
+
+      @each $nameSize, $valueSize in $obvy-border-size {
+          .obv-border-#{$nameSize}-#{$name} {
+              border: $valueSize solid $value;
+          }
+          .obv-border-top-#{$nameSize}-#{$name} {
+              border-top: $valueSize solid $value;
+          }
+          .obv-border-bottom-#{$nameSize}-#{$name} {
+              border-bottom: $valueSize solid $value;
+          }
+          .obv-border-left-#{$nameSize}-#{$name} {
+              border-left: $valueSize solid $value;
+          }
+          .obv-border-right-#{$nameSize}-#{$name} {
+              border-right: $valueSize solid $value;
+          }
+      };
+  };
+};
+
+$obv-spacers: (
+    "0": 0rem, // 0px
+    "1": 0.125rem, // 2px
+    "2": 0.25rem,   // 4px
+    "3": 0.5rem,   // 8px
+    "4": 0.75rem,   // 12px
+    "5": 1rem,    // 16px
+    "6": 1.5rem,   // 24px
+    "7": 2rem,  // 32px
+    "8": 2.5rem,    // 40px
+    "9": 3.5rem,    // 56px
+    "10": 4rem, // 64px
+    "11": 4.5rem,   // 72px
+    "12": 5rem, // 80px
+    "13": 6rem, // 96px
+    "14": 8rem, // 128px
+    "15": 11rem // 176px
+);
+
+$obv-radius: (
+    "10": 4px,
+    "20": 8px,
+    "30": 12px,
+    "40": 16px,
+    "50": 24px,
+    "100": 112px
+);
+
+@each $name, $value in $obv-radius {
+    .obv-radius-#{$name} {
+      border-radius: $value;
+    }
+};
+
+@each $name, $value in $obv-spacers {
+    .obv-p-#{$name} {
+        padding: $value;
+    }
+    .obv-p-#{$name} {
+        padding: $value;
+    }
+    .obv-pl-#{$name} {
+        padding-left: $value;
+    }
+    .obv-pr-#{$name} {
+        padding-right: $value;
+    }
+    .obv-pt-#{$name} {
+        padding-top: $value;
+    }
+    .obv-pb-#{$name} {
+        padding-bottom: $value;
+    }
+    .obv-px-#{$name} {
+        padding-right: $value;
+        padding-left: $value;
+    }
+    .obv-py-#{$name} {
+        padding-top: $value;
+        padding-bottom: $value;
+    }
+
+    .obv-m-#{$name} {
+        margin: $value;
+    }
+    .obv-m-#{$name} {
+        margin: $value;
+    }
+    .obv-ml-#{$name} {
+        margin-left: $value;
+    }
+    .obv-mr-#{$name} {
+        margin-right: $value;
+    }
+    .obv-mt-#{$name} {
+        margin-top: $value;
+    }
+    .obv-mb-#{$name} {
+        margin-bottom: $value;
+    }
+    .obv-mx-#{$name} {
+        margin-right: $value;
+        margin-left: $value;
+    }
+    .obv-my-#{$name} {
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+};
+
+$overlay-shadow: 0px 8px 12px #091E4226, 0px 0px 1px #091E424F;
+
+$type1: 'Overpass', sans-serif;
+$type2: 'Mulish', sans-serif;
+$type3: 'Sora', sans-serif;
+$type4: 'Inconsolata';
+
+$obvy-icon-sizes: (
+    small: map-get($obvy-font-size, 30),
+    medium: map-get($obvy-font-size, 40),
+    large: map-get($obvy-font-size, 50)
+);
+
+@each $name, $value in $obvy-icon-sizes {
+    .obv-ico-#{$name} {
+        font-size: $value;
+    }
+};
+
+$obv-font-families: (
+    "overpass": $type1,
+    "mulish": $type2,
+    "sora": $type3,
+    "inconsolata": $type4
+);
+
+@each $name, $value in $obv-font-families {
+    .obv-text-ff-#{$name} {
+        font-family: $value;
+    }
+};
+
+
+.obv-text-body-tiny{
+  font-family: map-get($obv-font-families, mulish);
+  font-weight: map-get($obvy-font-weight, regular);
+  line-height: map-get($obvy-font-line-height, 10);
+  font-size: map-get($obvy-font-size, 10);
+  letter-spacing: map-get($obvy-font-letter-spacing, 20);
+  &-bold{
+    font-family: map-get($obv-font-families, mulish);
+    font-weight: map-get($obvy-font-weight, bold);
+    line-height: map-get($obvy-font-line-height, 10);
+    font-size: map-get($obvy-font-size, 10);
+    letter-spacing: map-get($obvy-font-letter-spacing, 20);
+  }
+}
+
+.obv-text-body-small{
+  font-family: map-get($obv-font-families, mulish);
+  font-weight: map-get($obvy-font-weight, regular);
+  line-height: map-get($obvy-font-line-height, 20);
+  font-size: map-get($obvy-font-size, 20);
+  letter-spacing: map-get($obvy-font-letter-spacing, 10);
+  &-bold{
+    font-family: map-get($obv-font-families, mulish);
+    font-weight: map-get($obvy-font-weight, bold);
+    line-height: map-get($obvy-font-line-height, 20);
+    font-size: map-get($obvy-font-size, 20);
+    letter-spacing: map-get($obvy-font-letter-spacing, 10);
+  }
+}
+
+.obv-text-body-medium{
+  font-family: map-get($obv-font-families, mulish);
+  font-weight: map-get($obvy-font-weight, regular);
+  line-height: map-get($obvy-font-line-height, 30);
+  font-size: map-get($obvy-font-size, 30);
+  letter-spacing: map-get($obvy-font-letter-spacing, 00);
+  &-bold{
+    font-family: map-get($obv-font-families, mulish);
+    font-weight: map-get($obvy-font-weight, bold);
+    line-height: map-get($obvy-font-line-height, 30);
+    font-size: map-get($obvy-font-size, 30);
+    letter-spacing: map-get($obvy-font-letter-spacing, 00);
+  }
+}
+
+.obv-text-heading-small{
+  font-family: map-get($obv-font-families, sora);
+  font-weight: map-get($obvy-font-weight, regular);
+  line-height: map-get($obvy-font-line-height, 30);
+  font-size: map-get($obvy-font-size, 20);
+  letter-spacing: map-get($obvy-font-letter-spacing, 10);
+  &-bold{
+    font-family: map-get($obv-font-families, sora);
+    font-weight: map-get($obvy-font-weight, bold);
+    line-height: map-get($obvy-font-line-height, 30);
+    font-size: map-get($obvy-font-size, 20);
+    letter-spacing: map-get($obvy-font-letter-spacing, 10);
+  }
+}
+
+.obv-text-heading-medium{
+  font-family: map-get($obv-font-families, sora);
+  font-weight: map-get($obvy-font-weight, regular);
+  line-height: map-get($obvy-font-line-height, 40);
+  font-size: map-get($obvy-font-size, 30);
+  letter-spacing: map-get($obvy-font-letter-spacing, 00);
+  &-bold{
+    font-family: map-get($obv-font-families, sora);
+    font-weight: map-get($obvy-font-weight, bold);
+    line-height: map-get($obvy-font-line-height, 40);
+    font-size: map-get($obvy-font-size, 30);
+    letter-spacing: map-get($obvy-font-letter-spacing, 00);
+  }
+}
+
+
+.obv-text-heading-large{
+  font-family: map-get($obv-font-families, sora);
+  font-weight: map-get($obvy-font-weight, regular);
+  line-height: map-get($obvy-font-line-height, 50);
+  font-size: map-get($obvy-font-size, 40);
+  letter-spacing: map-get($obvy-font-letter-spacing, 00);
+  &-bold{
+    font-family: map-get($obv-font-families, sora);
+    font-weight: map-get($obvy-font-weight, bold);
+    line-height: map-get($obvy-font-line-height, 50);
+    font-size: map-get($obvy-font-size, 40);
+    letter-spacing: map-get($obvy-font-letter-spacing, 00);
+  }
+}
+
+.obv-text-heading-xlarge{
+  font-family: map-get($obv-font-families, sora);
+  font-weight: map-get($obvy-font-weight, regular);
+  line-height: map-get($obvy-font-line-height, 50);
+  font-size: map-get($obvy-font-size, 50);
+  letter-spacing: map-get($obvy-font-letter-spacing, 00);
+  &-bold{
+    font-family: map-get($obv-font-families, sora);
+    font-weight: map-get($obvy-font-weight, bold);
+    line-height: map-get($obvy-font-line-height, 50);
+    font-size: map-get($obvy-font-size, 50);
+    letter-spacing: map-get($obvy-font-letter-spacing, 00);
+  }
+}
+
+$obv-height:(
+  base: 48px
+);
