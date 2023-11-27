@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrestationService } from 'src/app/site/shared/services/prestations.service';
 
 @Component({
   selector: 'app-prestations',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrestationsComponent implements OnInit {
 
-  constructor() { }
+  prestations: any[] = [];
 
-  ngOnInit() {
+  constructor(
+    private prestationService: PrestationService
+  ) { }
+
+  ngOnInit(): void {
+    this.prestationService.getPrestations().subscribe((data) => {
+      this.prestations = data;
+    });
   }
-
 }
