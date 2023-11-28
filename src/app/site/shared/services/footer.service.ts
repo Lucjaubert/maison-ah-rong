@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FooterService {
-  private apiUrl = 'https://maisonahrong.com/wp-json/maison-ah-rong/v2/footer/';
+  private apiUrl = 'https://maisonahrong.com/wp-json/wp/v2/footer/';
 
   constructor(private http: HttpClient) {}
 

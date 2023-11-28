@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PrestationService {
     
-  private apiUrl = 'https://maisonahrong.com/wp-json/maison-ah-rong/v2/prestations/';
+  private apiUrl = 'https://maisonahrong.com/wp-json/wp/v2/prestations/';
 
   constructor(private http: HttpClient) {}
 
