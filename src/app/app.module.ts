@@ -7,12 +7,13 @@ import { FooterComponent } from './site/shared/components/footer/footer.componen
 import { HeaderComponent } from './site/shared/components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { SanitizeHtmlPipe } from './site/shared/pipes/sanitize-html.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

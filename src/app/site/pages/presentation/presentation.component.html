@@ -1,7 +1,8 @@
-<ul>
-  <li *ngFor="let presentation of presentations">
-    <h2>{{ presentation.title }}</h2>
-    <p>{{ presentation.content }}</p>
-  </li>
-</ul>
-
+<div>
+  <div *ngIf="firstPresentation">
+    <h2>{{ firstPresentation.title.rendered }}</h2>
+    <!-- Utilisez le filtre ici -->
+    <div [innerHTML]="firstPresentation.content.rendered | sanitizeHtml"></div>
+    <img *ngIf="firstPresentationImageUrl" [src]="firstPresentationImageUrl" alt="Image 1">
+  </div>
+</div>
