@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PresentationComponent } from './presentation.component';
-import { PresentationService } from '../../shared/services/presentation.service';
+import { PresentationService } from '../../services/presentation.service';
 import { PresentationRoutingModule } from './presentation-routing.module';
-import { SanitizeHtmlPipe } from '../../shared/pipes/sanitize-html.pipe';
+import { SanitizeHtmlPipe } from '../../pipes/sanitize-html.pipe';
+import { SharedModule } from '../../modules/shared.module';
 
 @NgModule({
   declarations: [
     PresentationComponent,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
   ],
   imports: [
     CommonModule,
-    PresentationRoutingModule 
+    PresentationRoutingModule,
+    SharedModule
+  ],
+  exports: [
+    PresentationComponent
   ],
   providers: [
     PresentationService

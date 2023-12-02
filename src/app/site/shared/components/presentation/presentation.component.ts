@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { PresentationService } from '../../shared/services/presentation.service';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { PresentationService } from '../../services/presentation.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import * as DOMPurify from 'dompurify';
 
 @Component({
   selector: 'app-presentation',
@@ -16,37 +18,40 @@ export class PresentationComponent implements OnInit {
   thirdPresentation: any | undefined;
   thirdPresentationImageUrl: string | undefined;
 
-  constructor(private presentationService: PresentationService) {}
+  constructor(
+    public presentationService: PresentationService,
+    private sanitizer: DomSanitizer,
+    private elementRef: ElementRef
+  ) {}
 
   ngOnInit(): void {
     // Première Présentation
     this.presentationService.getPresentationById(8).subscribe((data) => {
       this.firstPresentation = data;
       this.firstPresentationImageUrl = this.extractImageUrlFromContent(data);
-      console.log('First Presentation:', this.firstPresentation);
     });
 
     // Deuxième Présentation
     this.presentationService.getPresentationById(11).subscribe((data) => {
       this.secondPresentation = data;
       this.secondPresentationImageUrl = this.extractImageUrlFromContent(data);
-      console.log('Second Presentation:', this.secondPresentation);
     });
 
     // Troisième Présentation
     this.presentationService.getPresentationById(12).subscribe((data) => {
       this.thirdPresentation = data;
       this.thirdPresentationImageUrl = this.extractImageUrlFromContent(data);
-      console.log('Third Presentation:', this.thirdPresentation);
     });
   }
 
   private extractImageUrlFromContent(presentation: any): string | undefined {
-    if (presentation && presentation.content && presentation.content.rendered) {
-      const regex = /src="([^"]+)"/;
-      const match = presentation.content.rendered.match(regex);
-      return match && match.length > 1 ? match[1] : undefined;
+    if (presentation && presentation.featured_media_url) {
+      return presentation.featured_media_url;
     }
     return undefined;
+  }  
+
+  sanitizeHtml(content: string): SafeHtml {  
+    return this.sanitizer.bypassSecurityTrustHtml(DOMPurify.sanitize(content));
   }
 }

@@ -1,0 +1,6 @@
+<div id="contact">
+  <!-- Première Zone de Texte -->
+  <div *ngIf="firstContact">
+    <h2>{{ firstContact.title.rendered }}</h2>
+    <div [innerHTML]="firstContact.content.rendered"></div>
+  </div>

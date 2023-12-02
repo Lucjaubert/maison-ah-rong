@@ -1,0 +1,19 @@
+<div id="prestations">
+  <!-- Première Prestation -->
+  <div *ngIf="firstPrestation">
+    <h2>{{ firstPrestation.title.rendered }}</h2>
+    <div [innerHTML]="firstPrestation.content.rendered"></div>
+  </div>
+
+  <!-- Deuxième Prestation -->
+  <div *ngIf="secondPrestation">
+    <h2>{{ secondPrestation.title.rendered }}</h2>
+    <div [innerHTML]="secondPrestation.content.rendered"></div>
+  </div>
+
+  <!-- Troisième Prestation -->
+  <div *ngIf="thirdPrestation">
+    <h2>{{ thirdPrestation.title.rendered }}</h2>
+    <div [innerHTML]="thirdPrestation.content.rendered"></div>
+  </div>
+</div>

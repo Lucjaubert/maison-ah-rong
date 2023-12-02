@@ -13,10 +13,9 @@ export class PresentationService {
 
   getPresentation(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl).pipe(
-      tap(presentations => console.log('Presentations from API:', presentations)),
       catchError(error => {
         console.error('Error fetching presentation data:', error);
-        return of([]); 
+        return of([]);
       })
     );
   }

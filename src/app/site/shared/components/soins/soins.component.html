@@ -1,0 +1,22 @@
+<div id="soins">
+  <!-- Premier Soin -->
+  <div *ngIf="firstSoin">
+    <h2>{{ firstSoin.title.rendered }}</h2>
+    <div [innerHTML]="sanitizeHtml(firstSoin.content.rendered)"></div>
+    <img *ngIf="firstSoinImageUrl" [src]="firstSoinImageUrl" alt="Image 1">
+  </div>
+
+  <!-- Deuxième Soin -->
+  <div *ngIf="secondSoin">
+    <h2>{{ secondSoin.title.rendered }}</h2>
+    <div [innerHTML]="sanitizeHtml(secondSoin.content.rendered)"></div>
+    <img *ngIf="secondSoinImageUrl" [src]="secondSoinImageUrl" alt="Image 2">
+  </div>
+
+  <!-- Troisième Soin -->
+  <div *ngIf="thirdSoin">
+    <h2>{{ thirdSoin.title.rendered }}</h2>
+    <div [innerHTML]="sanitizeHtml(thirdSoin.content.rendered)"></div>
+    <img *ngIf="thirdSoinImageUrl" [src]="thirdSoinImageUrl" alt="Image 3">
+  </div>
+</div>
