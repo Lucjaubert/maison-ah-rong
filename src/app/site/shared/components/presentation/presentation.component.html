@@ -1,20 +1,20 @@
 <div id="presentation">
   <!-- Première Présentation -->
   <div *ngIf="firstPresentation">
-    <h2>{{ firstPresentation.title.rendered }}</h2>
-    <div [innerHTML]="sanitizeHtml(firstPresentation.content.rendered)"></div>
+    <h3>{{ firstPresentation.title.rendered }}</h3>
+    <p [innerHTML]="sanitizeHtml(firstPresentation.content.rendered)"></p>
     <img *ngIf="firstPresentationImageUrl" [src]="firstPresentationImageUrl" alt="Image 1">
   </div>
 
   <!-- Deuxième Présentation -->
   <div *ngIf="secondPresentation">
-    <div [innerHTML]="sanitizeHtml(secondPresentation.content.rendered)"></div>
+    <p [innerHTML]="sanitizeHtml(secondPresentation.content.rendered)"></p>
     <img *ngIf="secondPresentationImageUrl" [src]="secondPresentationImageUrl" alt="Image 2">
   </div>
 
   <!-- Troisième Présentation -->
   <div *ngIf="thirdPresentation">
-    <div [innerHTML]="sanitizeHtml(thirdPresentation.content.rendered)"></div>
+    <p [innerHTML]="sanitizeHtml(thirdPresentation.content.rendered)"></p>
     <img *ngIf="thirdPresentationImageUrl" [src]="thirdPresentationImageUrl" alt="Image 3">
   </div>
 </div>

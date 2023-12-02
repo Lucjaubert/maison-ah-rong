@@ -1,33 +1,120 @@
-@import "src/styles/_variables.scss";
-
-html {
-    scroll-behavior: smooth;
-}
-  
+@import "./_variables.scss";
+@import "node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "node_modules/bootstrap-icons/font/bootstrap-icons.css";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 body {
-    font-family: 'Muli', sans-serif !important;
-    color: map-get($colors, tinted-black);
+  font-family: "Cinzel", sans-serif;
+  color: map-get($colors, primary);
+  background-color: map-get($theme-colors, background-grey);
+  overflow-x: hidden !important;
+  main {
+    overflow: hidden !important;
+    width: 100%;
+  }
 }
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora' !important;
-}
-
-.cursor-p {
-    cursor: pointer;
-}
-
 .btn {
-    font-family: 'Sora' !important;
-    text-transform: none !important;
+  font-family: "Raleway", sans-serif;
+  text-transform: none;
+  width: fit-content;
+  background-color: map-get($theme-colors, "primary");
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.6rem;
+  font-size: map-get($font-size, m);
+  letter-spacing: 0;
+  &-primary {
+    padding: 1.25rem 2rem;
+  }
+  &-secondary {
+    padding: 0.5rem 2rem;
+  }
 }
 
-.btn-default {
-    //background-color: map-get($colors, deep-blue);
-    color: white;
-    font-weight: bold;
-    border-radius: 0.6rem;
-    font-size: 0.85rem;
-    letter-spacing: 0;
+h1 {
+  @extend .text-primary;
+  @extend .text-fw-x-bold;
+  @extend .text-fs-70;
+  font-family: "Cinzel", sans-serif;
 }
+h2 {
+  @extend .text-primary;
+  @extend .text-fw-xx-bold;
+  @extend .text-fs-60;
+  font-family: "Cinzel", sans-serif;
+}
+h3 {
+  @extend .text-primary;
+  @extend .text-fw-bold;
+  @extend .text-fs-50;
+  font-family: "Cinzel", sans-serif;
+}
+
+.small-title {
+  color: map-get($theme-colors, "primary");
+  font-size: map-get($font-size, 40);
+  font-weight: map-get($font-weight, bold);
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+p ul li {
+  @extend .text-primary;
+  @extend .text-fs-s;
+  font-family: "Cinzel", sans-serif;
+}
+
+// TEXT & TITLES
+.text-black-blue {
+    color: map-get($theme-colors, 10);
+  }
+  .text-fw-xx-bold {
+    font-weight: map-get($font-weight, xx-bold);
+  }
+
+  // FS
+  .text-fs-lgx {
+    font-size: map-get($font-size, lgx);
+  }
+  .text-fs-md-xl {
+    font-size: map-get($font-size, md-xl);
+  }
+  .text-fs-md {
+    font-size: map-get($font-size, md);
+  }
+  .text-fs-m {
+    font-size: map-get($font-size, m);
+  }
+  .text-fs-sm {
+    font-size: map-get($font-size, sm);
+  }
+  .text-fs-s {
+    font-size: map-get($font-size, s);
+  }
+  .text-fs-xs {
+    font-size: map-get($font-size, xs);
+  }
+
+
+  // FW
+  
+  .text-fw-x-bold {
+    font-weight: map-get($font-weight, x-bold);
+  }
+  .text-fw-medium {
+    font-weight: map-get($font-weight, medium);
+  }
+  .mb-lg {
+    margin-bottom: map-get($spacers, 7);
+  }
+  .mb-m {
+    margin-bottom: map-get($spacers, 3);
+  }
+  .text-fw-bold {
+    font-weight: map-get($font-weight, bold);
+  }
+
+  .bg-custom {
+    height: 10vh;
+  }
