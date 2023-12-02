@@ -1,8 +1,22 @@
 <div>
+  <!-- Première Présentation -->
   <div *ngIf="firstPresentation">
     <h2>{{ firstPresentation.title.rendered }}</h2>
-    <!-- Utilisez le filtre ici -->
     <div [innerHTML]="firstPresentation.content.rendered | sanitizeHtml"></div>
     <img *ngIf="firstPresentationImageUrl" [src]="firstPresentationImageUrl" alt="Image 1">
+  </div>
+
+  <!-- Deuxième Présentation -->
+  <div *ngIf="secondPresentation">
+    <h2>{{ secondPresentation.title.rendered }}</h2>
+    <div [innerHTML]="secondPresentation.content.rendered | sanitizeHtml"></div>
+    <img *ngIf="secondPresentationImageUrl" [src]="secondPresentationImageUrl" alt="Image 2">
+  </div>
+
+  <!-- Troisième Présentation -->
+  <div *ngIf="thirdPresentation">
+    <h2>{{ thirdPresentation.title.rendered }}</h2>
+    <div [innerHTML]="thirdPresentation.content.rendered | sanitizeHtml"></div>
+    <img *ngIf="thirdPresentationImageUrl" [src]="thirdPresentationImageUrl" alt="Image 3">
   </div>
 </div>

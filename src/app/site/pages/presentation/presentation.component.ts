@@ -10,26 +10,43 @@ export class PresentationComponent implements OnInit {
   firstPresentation: any | undefined;
   firstPresentationImageUrl: string | undefined;
 
+  secondPresentation: any | undefined;
+  secondPresentationImageUrl: string | undefined;
+
+  thirdPresentation: any | undefined;
+  thirdPresentationImageUrl: string | undefined;
+
   constructor(private presentationService: PresentationService) {}
 
   ngOnInit(): void {
+    // Première Présentation
     this.presentationService.getPresentationById(8).subscribe((data) => {
       this.firstPresentation = data;
-
-      // Vérifiez si content existe et contient l'URL de l'image
-      if (this.firstPresentation.content && this.firstPresentation.content.rendered) {
-        // Utilisez une expression régulière pour extraire l'URL de l'image du texte HTML
-        const regex = /src="([^"]+)"/;
-        const match = this.firstPresentation.content.rendered.match(regex);
-
-        // Vérifiez si une correspondance a été trouvée
-        if (match && match.length > 1) {
-          // Affectez l'URL de l'image à la propriété firstPresentationImageUrl
-          this.firstPresentationImageUrl = match[1];
-        }
-      }
-
+      this.firstPresentationImageUrl = this.extractImageUrlFromContent(data);
       console.log('First Presentation:', this.firstPresentation);
     });
+
+    // Deuxième Présentation
+    this.presentationService.getPresentationById(11).subscribe((data) => {
+      this.secondPresentation = data;
+      this.secondPresentationImageUrl = this.extractImageUrlFromContent(data);
+      console.log('Second Presentation:', this.secondPresentation);
+    });
+
+    // Troisième Présentation
+    this.presentationService.getPresentationById(12).subscribe((data) => {
+      this.thirdPresentation = data;
+      this.thirdPresentationImageUrl = this.extractImageUrlFromContent(data);
+      console.log('Third Presentation:', this.thirdPresentation);
+    });
+  }
+
+  private extractImageUrlFromContent(presentation: any): string | undefined {
+    if (presentation && presentation.content && presentation.content.rendered) {
+      const regex = /src="([^"]+)"/;
+      const match = presentation.content.rendered.match(regex);
+      return match && match.length > 1 ? match[1] : undefined;
+    }
+    return undefined;
   }
 }
