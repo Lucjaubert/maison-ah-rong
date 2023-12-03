@@ -18,6 +18,8 @@ export class PresentationComponent implements OnInit {
   thirdPresentation: any | undefined;
   thirdPresentationImageUrl: string | undefined;
 
+  firstPresentationExtraImageUrl: string = "assets/img/fond-qui-suis-je.png";
+
   constructor(
     public presentationService: PresentationService,
     private sanitizer: DomSanitizer,
