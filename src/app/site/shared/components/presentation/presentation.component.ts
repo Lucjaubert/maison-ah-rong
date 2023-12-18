@@ -21,6 +21,7 @@ export class PresentationComponent implements OnInit {
   thirdPresentation: any | undefined;
   thirdPresentationImageUrl: string | undefined;
 
+
   constructor(
     public presentationService: PresentationService,
     private sanitizer: DomSanitizer,
