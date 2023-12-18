@@ -30,3 +30,36 @@
         position: relative;
     }
 }
+
+@import "/src/styles/variables.scss";
+
+.booking-item {
+    .common-input-style {
+        width: 250px;
+        box-sizing: border-box;
+    }
+
+    .mat-input-components {
+        margin-bottom: 4px;
+        position: relative;
+
+        // Transition
+        transition: margin 0.5s ease-in-out;
+
+        .mat-error {
+            color: red;
+            margin-top: 4px;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        &:has(.mat-error) {
+            margin-bottom: 6px; // Ajustez la marge en cas d'erreur
+        }
+    }
+
+    .input-container {
+        position: relative;
+    }
+}

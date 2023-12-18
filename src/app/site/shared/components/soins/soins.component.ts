@@ -18,6 +18,8 @@ export class SoinsComponent implements OnInit {
   thirdSoin: any | undefined;
   thirdSoinImageUrl: string | undefined;
 
+  firstSoinExtraImageUrl = 'assets/img/fond-soins.png';
+
   constructor(
     public soinsService: SoinsService,
     private sanitizer: DomSanitizer
@@ -27,27 +29,17 @@ export class SoinsComponent implements OnInit {
     // Premier Soin
     this.soinsService.getSoinsById(32).subscribe((data) => {
       this.firstSoin = data;
-      this.firstSoinImageUrl = this.extractImageUrlFromContent(data);
     });
 
     // Deuxième Soin
     this.soinsService.getSoinsById(34).subscribe((data) => {
       this.secondSoin = data;
-      this.secondSoinImageUrl = this.extractImageUrlFromContent(data);
     });
 
     // Troisième Soin
     this.soinsService.getSoinsById(36).subscribe((data) => {
       this.thirdSoin = data;
-      this.thirdSoinImageUrl = this.extractImageUrlFromContent(data);
     });
-  }
-
-  private extractImageUrlFromContent(soin: any): string | undefined {
-    if (soin && soin.featured_media_url) {
-      return soin.featured_media_url;
-    }
-    return undefined;
   }
 
   sanitizeHtml(content: string): SafeHtml {

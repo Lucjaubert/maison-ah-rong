@@ -6,7 +6,6 @@ import { HomeRoutingModule } from './soins-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule,
   ],
   declarations: [SoinsComponent],
   exports: [SoinsComponent]

@@ -13,7 +13,6 @@ import { SharedModule } from '../../modules/shared.module';
   ],
   imports: [
     CommonModule,
-    PresentationRoutingModule,
     SharedModule
   ],
   exports: [
