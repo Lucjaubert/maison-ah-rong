@@ -1,19 +1,27 @@
-<div id="prestations">
-  <!-- Première Prestation -->
-  <div *ngIf="firstPrestation">
-    <h2>{{ firstPrestation.title.rendered }}</h2>
-    <div [innerHTML]="firstPrestation.content.rendered"></div>
+<div id="prestations" class="prestation-item mt-1 text-center">
+  <div class="prestation-container">
+    <div class="image-container col-12">
+      <img *ngIf="firstPrestationExtraImageUrl" [src]="firstPrestationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
+      <h3 class="card-title">{{ firstPrestation.title.rendered }}</h3>
+    </div>
   </div>
-
-  <!-- Deuxième Prestation -->
-  <div *ngIf="secondPrestation">
-    <h2>{{ secondPrestation.title.rendered }}</h2>
-    <div [innerHTML]="secondPrestation.content.rendered"></div>
-  </div>
-
-  <!-- Troisième Prestation -->
-  <div *ngIf="thirdPrestation">
-    <h2>{{ thirdPrestation.title.rendered }}</h2>
-    <div [innerHTML]="thirdPrestation.content.rendered"></div>
-  </div>
-</div>
+  <ng-container>
+    <!-- Première Prestation -->
+    <div class="container mt-10 px-0">
+      <div *ngIf="firstPrestation">
+        <div [innerHTML]="firstPrestation.content.rendered"></div>
+      </div>
+    </div>
+    <div  class="container mt-10 px-0">
+      <!-- Deuxième Prestation -->
+      <div *ngIf="secondPrestation">
+        <div [innerHTML]="secondPrestation.content.rendered"></div>
+      </div>
+    </div>
+    <div class="container my-10 px-0">
+      <!-- Troisième Prestation -->
+      <div *ngIf="thirdPrestation">
+        <div [innerHTML]="thirdPrestation.content.rendered"></div>
+      </div>
+    </div>
+  </ng-container>

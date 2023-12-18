@@ -1,20 +1,28 @@
-<div id="presentation">
-  <!-- Première Présentation -->
-  <div *ngIf="firstPresentation">
-    <h3>{{ firstPresentation.title.rendered }}</h3>
-    <p [innerHTML]="sanitizeHtml(firstPresentation.content.rendered)"></p>
-    <img *ngIf="firstPresentationImageUrl" [src]="firstPresentationImageUrl" alt="Image 1">
+<div id="presentation" class="presentation-item mt-1 text-center">
+  <div class="presentation-container">
+    <div class="image-container col-12">
+      <img *ngIf="firstPresentationExtraImageUrl" [src]="firstPresentationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
+      <h3 class="card-title">{{ firstPresentation.title.rendered }}</h3>
+    </div>
   </div>
+  <ng-container>
+    <div class="container mt-10 px-0">
+      <!-- Première Présentation -->
+      <div *ngIf="firstPresentation">
+        <p [innerHTML]="sanitizeHtml(firstPresentation.content.rendered)" class="card-text-img"></p>
+    </div>
 
-  <!-- Deuxième Présentation -->
-  <div *ngIf="secondPresentation">
-    <p [innerHTML]="sanitizeHtml(secondPresentation.content.rendered)"></p>
-    <img *ngIf="secondPresentationImageUrl" [src]="secondPresentationImageUrl" alt="Image 2">
-  </div>
+    <div  class="container mt-10 px-0">
+      <!-- Deuxième Présentation -->
+      <div *ngIf="secondPresentation">
+        <p [innerHTML]="sanitizeHtml(secondPresentation.content.rendered)" class="card-img-text"></p>
+      </div>
+    </div>
 
-  <!-- Troisième Présentation -->
-  <div *ngIf="thirdPresentation">
-    <p [innerHTML]="sanitizeHtml(thirdPresentation.content.rendered)"></p>
-    <img *ngIf="thirdPresentationImageUrl" [src]="thirdPresentationImageUrl" alt="Image 3">
-  </div>
+    <div class="container my-10 px-0">
+      <!-- Troisième Présentation -->
+      <div *ngIf="thirdPresentation">
+        <p [innerHTML]="sanitizeHtml(thirdPresentation.content.rendered)" class="card-text-img"></p>
+      </div>
+    </div>
 </div>

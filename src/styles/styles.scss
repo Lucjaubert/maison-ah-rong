@@ -118,3 +118,10 @@ p ul li {
   .bg-custom {
     height: 10vh;
   }
+
+
+  .border-container-prestations {
+    border: 1px solid map-get($theme-colors, primary) !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+  }

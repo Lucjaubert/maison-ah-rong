@@ -11,6 +11,8 @@ export class PrestationsComponent implements OnInit {
   secondPrestation: any | undefined;
   thirdPrestation: any | undefined;
 
+  firstPrestationExtraImageUrl = 'assets/img/fond-prestations.png';
+
   constructor(private prestationsService: PrestationsService) {}
 
   ngOnInit(): void {

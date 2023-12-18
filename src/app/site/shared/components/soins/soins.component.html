@@ -1,22 +1,28 @@
-<div id="soins">
-  <!-- Premier Soin -->
-  <div *ngIf="firstSoin">
-    <h2>{{ firstSoin.title.rendered }}</h2>
-    <div [innerHTML]="sanitizeHtml(firstSoin.content.rendered)"></div>
-    <img *ngIf="firstSoinImageUrl" [src]="firstSoinImageUrl" alt="Image 1">
+<div id="soins" class="soin-item mt-1 text-center">
+  <div class="soin-container">
+    <div class="image-container col-12">
+      <img *ngIf="firstSoinExtraImageUrl" [src]="firstSoinExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
+      <h3 class="card-title">{{ firstSoin.title.rendered }}</h3>
+    </div>
   </div>
-
-  <!-- Deuxième Soin -->
-  <div *ngIf="secondSoin">
-    <h2>{{ secondSoin.title.rendered }}</h2>
-    <div [innerHTML]="sanitizeHtml(secondSoin.content.rendered)"></div>
-    <img *ngIf="secondSoinImageUrl" [src]="secondSoinImageUrl" alt="Image 2">
-  </div>
-
-  <!-- Troisième Soin -->
-  <div *ngIf="thirdSoin">
-    <h2>{{ thirdSoin.title.rendered }}</h2>
-    <div [innerHTML]="sanitizeHtml(thirdSoin.content.rendered)"></div>
-    <img *ngIf="thirdSoinImageUrl" [src]="thirdSoinImageUrl" alt="Image 3">
-  </div>
+  <ng-container>
+    <div class="container mt-10 px-0">
+      <!-- Première Soin -->
+      <div *ngIf="firstSoin">
+        <p [innerHTML]="sanitizeHtml(firstSoin.content.rendered)" class="card-img-text"></p>
+      </div>
+    </div>
+    <div class="container mt-10 px-0">
+      <!-- Deuxième Soin -->
+      <div *ngIf="secondSoin">
+        <p [innerHTML]="sanitizeHtml(secondSoin.content.rendered)" class="card-text-img"></p>
+      </div>
+    </div>
+    <div class="container my-10 px-0">
+      <!-- Troisième Soin -->
+      <div *ngIf="thirdSoin">
+        <p [innerHTML]="sanitizeHtml(thirdSoin.content.rendered)" class="card-img-text"></p>
+      </div>
+    </div>
+  </ng-container>
 </div>

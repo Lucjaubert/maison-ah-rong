@@ -9,6 +9,9 @@ import * as DOMPurify from 'dompurify';
   styleUrls: ['./presentation.component.scss'],
 })
 export class PresentationComponent implements OnInit {
+
+  firstPresentationExtraImageUrl = 'assets/img/fond-qui-suis-je.png';
+
   firstPresentation: any | undefined;
   firstPresentationImageUrl: string | undefined;
 
@@ -21,34 +24,23 @@ export class PresentationComponent implements OnInit {
   constructor(
     public presentationService: PresentationService,
     private sanitizer: DomSanitizer,
-    private elementRef: ElementRef
   ) {}
 
   ngOnInit(): void {
     // Première Présentation
     this.presentationService.getPresentationById(8).subscribe((data) => {
       this.firstPresentation = data;
-      this.firstPresentationImageUrl = this.extractImageUrlFromContent(data);
     });
 
     // Deuxième Présentation
     this.presentationService.getPresentationById(11).subscribe((data) => {
       this.secondPresentation = data;
-      this.secondPresentationImageUrl = this.extractImageUrlFromContent(data);
     });
 
     // Troisième Présentation
     this.presentationService.getPresentationById(12).subscribe((data) => {
       this.thirdPresentation = data;
-      this.thirdPresentationImageUrl = this.extractImageUrlFromContent(data);
     });
-  }
-
-  private extractImageUrlFromContent(presentation: any): string | undefined {
-    if (presentation && presentation.featured_media_url) {
-      return presentation.featured_media_url;
-    }
-    return undefined;
   }  
 
   sanitizeHtml(content: string): SafeHtml {  
