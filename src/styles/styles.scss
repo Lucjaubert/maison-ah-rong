@@ -6,7 +6,7 @@
 
 body {
   font-family: "Cinzel", sans-serif;
-  color: map-get($colors, primary);
+  color: map-get($colors, grey);
   background-color: map-get($theme-colors, background-grey);
   overflow-x: hidden !important;
   main {
@@ -18,49 +18,49 @@ body {
   font-family: "Raleway", sans-serif;
   text-transform: none;
   width: fit-content;
-  background-color: map-get($theme-colors, "primary");
+  background-color: map-get($theme-colors, "grey");
   border: none;
   color: white;
   font-weight: bold;
   border-radius: 0.6rem;
   font-size: map-get($font-size, m);
   letter-spacing: 0;
-  &-primary {
+  &-grey {
     padding: 1.25rem 2rem;
   }
-  &-secondary {
+  &-light {
     padding: 0.5rem 2rem;
   }
 }
 
 h1 {
-  @extend .text-primary;
+  @extend .text-grey;
   @extend .text-fw-x-bold;
   @extend .text-fs-70;
   font-family: "Cinzel", sans-serif;
 }
 h2 {
-  @extend .text-primary;
+  @extend .text-grey;
   @extend .text-fw-xx-bold;
   @extend .text-fs-60;
   font-family: "Cinzel", sans-serif;
 }
 h3 {
-  @extend .text-primary;
+  @extend .text-grey;
   @extend .text-fw-bold;
   @extend .text-fs-50;
   font-family: "Cinzel", sans-serif;
 }
 
 .small-title {
-  color: map-get($theme-colors, "primary");
+  color: map-get($theme-colors, "grey");
   font-size: map-get($font-size, 40);
   font-weight: map-get($font-weight, bold);
   text-transform: uppercase;
   margin-bottom: 0;
 }
 p ul li {
-  @extend .text-primary;
+  @extend .text-grey;
   @extend .text-fs-s;
   font-family: "Cinzel", sans-serif;
 }
@@ -147,11 +147,41 @@ p ul li {
 
 .nav-bg-custom {
     height: 10vh;
-  }
+}
+
+.section-offset {
+  //padding-top: 100px; 
+  margin-top: -100px; 
+}
 
 
-  .border-container-prestations {
-    border: 1px solid map-get($theme-colors, primary) !important;
-    padding: 10px !important;
-    box-sizing: border-box !important;
+.border-container-prestations {
+  border: 1px solid map-get($theme-colors, grey) !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+}
+
+header#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 1s ease-in-out; // Ajoute une transition à la propriété top
+}
+
+header#header.hide {
+  top: -100%; // Déplace l'en-tête hors de la vue
+}
+
+.nav-item {
+  transition: all 0.2s ease;
+  .nav-hover-link {
+    padding-bottom: 2px; 
+    &:hover {
+      color: map-get($theme-colors, light-pink) !important;
+      border-bottom: 1px solid map-get($theme-colors, light-pink);
+    }
   }
+}
+
+  
