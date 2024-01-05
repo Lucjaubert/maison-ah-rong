@@ -7,59 +7,27 @@
     }
 
     .mat-input-components {
-        margin-bottom: 4px;
+        margin-bottom: 4px; 
         position: relative;
-
-        // Transition
         transition: margin 0.5s ease-in-out;
-
-        .mat-error {
-            color: red;
-            margin-top: 4px;
-            position: absolute;
-            bottom: -10px;
-            left: 0;
+      
+        .flex-column {
+          display: flex;
+          flex-direction: column;
         }
-
-        &:has(.mat-error) {
-            margin-bottom: 6px; // Ajustez la marge en cas d'erreur
+      
+        .error-message {
+          transition: margin 0.5s ease-in-out; 
+          margin-top: 5px; 
+          margin-bottom: 0; 
+          color: map-get($theme-colors, danger);
         }
-    }
-
-    .input-container {
-        position: relative;
-    }
+      
+        &.ng-invalid .error-message {
+          margin-top: 10px; 
+          margin-bottom: 10px; 
+        }
+      }
+      
 }
 
-@import "/src/styles/variables.scss";
-
-.booking-item {
-    .common-input-style {
-        width: 250px;
-        box-sizing: border-box;
-    }
-
-    .mat-input-components {
-        margin-bottom: 4px;
-        position: relative;
-
-        // Transition
-        transition: margin 0.5s ease-in-out;
-
-        .mat-error {
-            color: red;
-            margin-top: 4px;
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-        }
-
-        &:has(.mat-error) {
-            margin-bottom: 6px; // Ajustez la marge en cas d'erreur
-        }
-    }
-
-    .input-container {
-        position: relative;
-    }
-}

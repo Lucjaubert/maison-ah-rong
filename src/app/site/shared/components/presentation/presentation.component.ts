@@ -13,14 +13,10 @@ export class PresentationComponent implements OnInit {
   firstPresentationExtraImageUrl = 'assets/img/fond-qui-suis-je.png';
 
   firstPresentation: any | undefined;
-  firstPresentationImageUrl: string | undefined;
 
   secondPresentation: any | undefined;
-  secondPresentationImageUrl: string | undefined;
 
   thirdPresentation: any | undefined;
-  thirdPresentationImageUrl: string | undefined;
-
 
   constructor(
     public presentationService: PresentationService,

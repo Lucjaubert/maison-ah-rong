@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router'; // Importez RouterModule
+import { RouterModule } from '@angular/router'; 
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,12 +12,13 @@ import { HomeModule } from './site/shared/components/home/home.module';
 import { ContactModule } from "./site/shared/components/contact/contact.module";
 import { BookingModule } from './site/shared/components/booking/booking.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BookingService } from './site/shared/services/booking.service';
 
 @NgModule({
     declarations: [
         AppComponent,
     ],
-    providers: [],
+    providers: [BookingService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

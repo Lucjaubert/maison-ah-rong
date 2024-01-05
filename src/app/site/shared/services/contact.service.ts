@@ -19,4 +19,14 @@ export class ContactService {
       })
     );
   }
+
+  getContactById(id: number): Observable<any> {
+    return this.getContact().pipe(
+      map(contacts => contacts.find(contact => contact.id === id)),
+      catchError(error => {
+        console.error('Error fetching contact data:', error);
+        return of(undefined);
+      })
+    );
+  }
 }

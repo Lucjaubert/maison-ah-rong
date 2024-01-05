@@ -1,8 +1,25 @@
 <div id="contact" class="contact-item mt-1 text-center">
-  <div class="">
-    <div *ngIf="firstContact">
-      <h2>{{ firstContact.title.rendered }}</h2>
-      <div [innerHTML]="firstContact.content.rendered"></div>
+  <div class="container mb-10">
+    <div *ngIf="firstContact" class="row d-flex justify-content-between align-items-center">
+      <div class="col-6">
+        <p class="text-fs-40 text-fw-bold p-4">Pour me contacter</p>
+        <p [innerHTML]="sanitizeHtml(firstContact.content.rendered)"></p>
+        
+        <div class="social-icons">
+          <!-- Icône Instagram avec lien -->
+          <a href="https://www.instagram.com/maison_ah_rong/" target="_blank" rel="noopener noreferrer" class="mr-5">
+            <img src="assets/img/instagram-black.png" alt="Instagram" width="30" height="30">
+          </a>
+        
+          <!-- Icône Facebook avec lien -->
+          <a href="https://www.facebook.com/maisonahrong" target="_blank" rel="noopener noreferrer">
+            <img src="assets/img/facebook-black.png" alt="Facebook" width="30" height="30">
+          </a>
+        </div>        
+      </div>
+      <div class="col-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d667.395641101587!2d-0.5794318363751025!3d44.84461342110453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527de9f626d47%3A0x5a9ec54b4a0d367a!2s12%20Rue%20Huguerie%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1704450719276!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
 </div>

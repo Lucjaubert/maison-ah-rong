@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrestationsService } from '../../services/prestations.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import * as DOMPurify from 'dompurify';
 
 @Component({
   selector: 'app-prestations',
@@ -13,7 +15,7 @@ export class PrestationsComponent implements OnInit {
 
   firstPrestationExtraImageUrl = 'assets/img/fond-prestations.png';
 
-  constructor(private prestationsService: PrestationsService) {}
+  constructor(private prestationsService: PrestationsService, private sanitizer: DomSanitizer,) {}
 
   ngOnInit(): void {
     // Première Prestation
@@ -30,5 +32,9 @@ export class PrestationsComponent implements OnInit {
     this.prestationsService.getPrestationById(41).subscribe((data) => {
       this.thirdPrestation = data;
     });
+  }
+
+  sanitizeHtml(content: string): SafeHtml {  
+    return this.sanitizer.bypassSecurityTrustHtml(DOMPurify.sanitize(content));
   }
 }

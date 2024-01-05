@@ -1,27 +1,29 @@
 <div id="prestations" class="prestation-item mt-1 text-center">
   <div class="prestation-container">
     <div class="image-container col-12">
-      <img *ngIf="firstPrestationExtraImageUrl" [src]="firstPrestationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
-      <h3 class="card-title">{{ firstPrestation.title.rendered }}</h3>
+      <img *ngIf="firstPrestation && firstPrestation.title" [src]="firstPrestationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
+      <!-- Assurez-vous que firstPrestation et firstPrestation.title sont définis avant d'accéder à ses propriétés -->
+      <h3 *ngIf="firstPrestation && firstPrestation.title" class="card-title">{{ firstPrestation.title.rendered }}</h3>
     </div>
   </div>
   <ng-container>
     <!-- Première Prestation -->
     <div class="container mt-10 px-0">
-      <div *ngIf="firstPrestation">
-        <div [innerHTML]="firstPrestation.content.rendered"></div>
+      <div *ngIf="firstPrestation && firstPrestation.content">
+        <p [innerHTML]="sanitizeHtml(firstPrestation.content.rendered)"></p>
       </div>
     </div>
     <div  class="container mt-10 px-0">
       <!-- Deuxième Prestation -->
-      <div *ngIf="secondPrestation">
-        <div [innerHTML]="secondPrestation.content.rendered"></div>
+      <div *ngIf="secondPrestation && secondPrestation.content">
+        <p [innerHTML]="sanitizeHtml(secondPrestation.content.rendered)"></p>
       </div>
     </div>
     <div class="container my-10 px-0">
       <!-- Troisième Prestation -->
-      <div *ngIf="thirdPrestation">
-        <div [innerHTML]="thirdPrestation.content.rendered"></div>
+      <div *ngIf="thirdPrestation && thirdPrestation.content">
+        <p [innerHTML]="sanitizeHtml(thirdPrestation.content.rendered)"></p>
       </div>
     </div>
   </ng-container>
+</div>

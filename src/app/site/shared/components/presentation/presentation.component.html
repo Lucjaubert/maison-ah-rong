@@ -1,18 +1,19 @@
 <div id="presentation" class="presentation-item section-offset mt-1 text-center">
   <div class="presentation-container">
     <div class="image-container col-12">
-      <img *ngIf="firstPresentationExtraImageUrl" [src]="firstPresentationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
-      <h3 class="card-title">{{ firstPresentation.title.rendered }}</h3>
-    </div>
+      <img *ngIf="firstPresentation && firstPresentation.title" [src]="firstPresentationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
+      <h3 class="card-title" *ngIf="firstPresentation && firstPresentation.title">{{ firstPresentation.title.rendered }}</h3>
+    </div>    
   </div>
   <ng-container>
     <div class="container mt-10 px-0">
       <!-- Première Présentation -->
       <div *ngIf="firstPresentation">
         <p [innerHTML]="sanitizeHtml(firstPresentation.content.rendered)" class="card-text-img"></p>
-    </div>
+      </div>
+    </div> <!-- Fermez la balise <div> correspondante ici -->
 
-    <div  class="container mt-10 px-0">
+    <div class="container mt-10 px-0">
       <!-- Deuxième Présentation -->
       <div *ngIf="secondPresentation">
         <p [innerHTML]="sanitizeHtml(secondPresentation.content.rendered)" class="card-img-text"></p>
@@ -25,4 +26,5 @@
         <p [innerHTML]="sanitizeHtml(thirdPresentation.content.rendered)" class="card-text-img"></p>
       </div>
     </div>
+  </ng-container>
 </div>
