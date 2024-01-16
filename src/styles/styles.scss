@@ -18,7 +18,7 @@ body {
   font-family: "Raleway", sans-serif;
   text-transform: none;
   width: fit-content;
-  background-color: map-get($theme-colors, "grey");
+  background-color: map-get($theme-colors, "grey-light");
   border: none;
   color: white;
   font-weight: bold;
@@ -26,7 +26,7 @@ body {
   font-size: map-get($font-size, m);
   letter-spacing: 0;
   &-grey {
-    padding: 1.25rem 2rem;
+    padding: 0.5rem 1.8rem;
   }
   &-light {
     padding: 0.5rem 2rem;
@@ -166,7 +166,7 @@ header#header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  transition: top 1s ease-in-out; // Ajoute une transition à la propriété top
+  transition: top 1s ease-in-out;
 }
 
 header#header.hide {
@@ -183,5 +183,7 @@ header#header.hide {
     }
   }
 }
+
+
 
   

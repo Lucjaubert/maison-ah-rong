@@ -23,7 +23,7 @@ export class BookingComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private bookingService: BookingService
+    private bookingService: BookingService,
   ) {
     this.bookingForm = this.formBuilder.group({
       first_name: ['', [Validators.required]],

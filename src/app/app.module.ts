@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router'; 
+import { RouterModule, Routes } from '@angular/router'; 
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,28 +13,25 @@ import { ContactModule } from "./site/shared/components/contact/contact.module";
 import { BookingModule } from './site/shared/components/booking/booking.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookingService } from './site/shared/services/booking.service';
-
+import { AppRoutingModule } from './app-routing.module';
+import { MainPageModule } from './main-page/main-page.module';
 @NgModule({
-    declarations: [
+    declarations: [	
         AppComponent,
-    ],
+   ],
     providers: [BookingService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         CommonModule,
         HttpClientModule,
-        RouterModule.forRoot([]), 
-        PrestationsModule,
-        PresentationModule,
-        SoinsModule,
-        FooterModule,
-        HomeModule,
-        BookingModule,
-        ContactModule,
+        RouterModule.forRoot([]),
         FormsModule,
         ReactiveFormsModule,
-    ],
+        AppRoutingModule,
+        MainPageModule,
+        FooterModule,
+      ],
 })
 export class AppModule { }
 
