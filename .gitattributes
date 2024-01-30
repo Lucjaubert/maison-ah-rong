@@ -2,3 +2,6 @@
 *.html linguist-detectable=true
 *.scss linguist-detectable=true
 *.js linguist-detectable=true
+*.php linguist-detectable=true
+*.angular linguist-detectable=true
+*.wordpress linguist-detectable=true
