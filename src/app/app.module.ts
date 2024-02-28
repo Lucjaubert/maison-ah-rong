@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MainPageModule } from './main-page/main-page.module';
 import { SendmailService } from './site/shared/services/sendmail.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     declarations: [	
         AppComponent,
@@ -25,6 +27,8 @@ import { SendmailService } from './site/shared/services/sendmail.service';
         AppRoutingModule,
         MainPageModule,
         FooterModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule
       ],
 })
 export class AppModule { }

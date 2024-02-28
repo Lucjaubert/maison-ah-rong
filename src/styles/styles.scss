@@ -184,6 +184,28 @@ header#header.hide {
   }
 }
 
+.cdk-overlay-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.mat-snack-bar {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14);
+}
+
+.mat-snack-bar-content {
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.mat-mdc-snack-bar-container {
+  background-color: map-get($theme-colors, "light");
+}
 
 
   

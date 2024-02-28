@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SendmailService } from '../../services/sendmail.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-booking',
@@ -15,8 +16,9 @@ export class BookingComponent {
     email: "L'adresse e-mail est obligatoire et doit être au format valide.",
     booking_date: "La date et l'heure du rendez-vous sont obligatoires.",
   };
+  durationInSeconds = 5;
 
-  constructor(private formBuilder: FormBuilder, private sendmailService: SendmailService) {
+  constructor(private formBuilder: FormBuilder, private sendmailService: SendmailService, private _snackBar: MatSnackBar) {
     this.bookingForm = this.formBuilder.group({
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
@@ -27,6 +29,7 @@ export class BookingComponent {
     });
   }
 
+
   sendEmail() {
     if (!this.bookingForm.valid) {
       console.log('Formulaire invalide. Ne soumettez pas la requête.');
@@ -34,8 +37,6 @@ export class BookingComponent {
     }
 
     const formData = this.bookingForm.value;
-
-    const API_URL = 'https://maisonahrong.com/wp-json/maison-ah-rong/v1/send-mail/';
 
     this.sendmailService.sendEmail(formData).subscribe(
       (response) => {
@@ -49,9 +50,17 @@ export class BookingComponent {
     );
   }
 
+  // Méthode pour ouvrir le snackbar en cas de succès
+  openSnackBar() {
+    this._snackBar.open('Votre réservation a été soumise avec succès', '', {
+      duration: 5000, 
+    });
+  }
+
   handleSuccessResponse() {
     console.log('Réservation soumise avec succès');
     this.bookingForm.reset();
+    this.openSnackBar();
   }
 
   handleErrorResponse(errorMessage: string) {
