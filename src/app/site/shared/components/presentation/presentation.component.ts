@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PresentationService } from '../../services/presentation.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import * as DOMPurify from 'dompurify';
@@ -8,15 +8,15 @@ import * as DOMPurify from 'dompurify';
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.scss'],
 })
-export class PresentationComponent implements OnInit {
+export class PresentationComponent implements OnInit, AfterViewInit {
 
   firstPresentationExtraImageUrl = 'assets/img/fond-qui-suis-je.png';
 
   firstPresentation: any | undefined;
-
   secondPresentation: any | undefined;
-
   thirdPresentation: any | undefined;
+
+  public isVisible = true;
 
   constructor(
     public presentationService: PresentationService,
@@ -27,6 +27,8 @@ export class PresentationComponent implements OnInit {
     // Première Présentation
     this.presentationService.getPresentationById(8).subscribe((data) => {
       this.firstPresentation = data;
+      console.log('firstPresentation chargée :', this.firstPresentation);
+      console.log('isVisible dans ngOnInit :', this.isVisible);
     });
 
     // Deuxième Présentation
@@ -38,9 +40,39 @@ export class PresentationComponent implements OnInit {
     this.presentationService.getPresentationById(12).subscribe((data) => {
       this.thirdPresentation = data;
     });
-  }  
+  }
 
-  sanitizeHtml(content: string): SafeHtml {  
+  ngAfterViewInit(): void {
+    // Initialiser l'observateur d'intersection ici
+    this.initializeIntersectionObserver();
+    this.isVisible = true;
+  }
+
+  private initializeIntersectionObserver() {
+    const presentationSections = document.querySelectorAll('.presentation-section');
+    
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1 // Observer lorsque la section entière est visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    presentationSections.forEach(section => {
+      observer.observe(section);
+    });
+  }
+  
+
+  sanitizeHtml(content: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(DOMPurify.sanitize(content));
   }
 }

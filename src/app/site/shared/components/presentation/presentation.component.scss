@@ -1,6 +1,5 @@
 @import "/src/styles/variables.scss";
 
-
 .presentation-item {
     .presentation-container {
         position: relative;
@@ -9,13 +8,87 @@
             position: relative;
 
             h3 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
             }
         }
 
+        section {
+            display: grid;
+            place-items: center;
+            align-items: center;
+            min-height: 50vh;
+        }
+
+        .presentation-section {
+            opacity: 0;
+            transform: translateY(20px); /* Translation vers le bas par défaut */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition pour opacity et transform */
+        }
+        
+        .presentation-section.visible {
+            opacity: 1;
+            transform: translateY(0); /* Remise à zéro de la translation lorsqu'elle est visible */
+            animation: fadeInUp 1s ease-out forwards; /* Ajout d'une animation fadeInUp */
+        }
     }
+}
+
+/* Animation fadeInUp */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Animation commence avec une translation vers le bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Animation termine avec une translation nulle */
+    }
+}
+
+/* Autres animations */
+.slide-in {
+  animation: slideIn 2s ease-in-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.zoom-in {
+  animation: zoomIn 2s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
