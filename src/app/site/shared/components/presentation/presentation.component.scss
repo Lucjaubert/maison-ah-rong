@@ -1,65 +1,47 @@
 @import "/src/styles/variables.scss";
 
 .presentation-item {
-    .presentation-container {
-        position: relative;
-
-        .image-container {
-            position: relative;
-
-            h3 {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 1;
-            }
-        }
-
-        section {
-            display: grid;
-            place-items: center;
-            align-items: center;
-            min-height: 50vh;
-        }
-
-        .presentation-section {
-            opacity: 0;
-            transform: translateY(20px); /* Translation vers le bas par défaut */
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition pour opacity et transform */
-        }
-        
-        .presentation-section.visible {
-            opacity: 1;
-            transform: translateY(0); /* Remise à zéro de la translation lorsqu'elle est visible */
-            animation: fadeInUp 1s ease-out forwards; /* Ajout d'une animation fadeInUp */
-        }
+  .presentation-container {
+    position: relative;
+    .image-container {
+      position: relative;
+      h3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
     }
-}
-
-/* Animation fadeInUp */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* Animation commence avec une translation vers le bas */
+    section {
+      display: grid;
+      place-items: center;
+      align-items: center;
+      min-height: 50vh;
     }
-    to {
+    .presentation-section {
+      opacity: 0;
+      transform: translateY(20px); /* Translation vers le bas par défaut */
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition pour opacity et transform */
+      &.visible {
         opacity: 1;
-        transform: translateY(0); /* Animation termine avec une translation nulle */
+        transform: translateY(0); /* Remise à zéro de la translation lorsqu'elle est visible */
+      }
     }
+  }
 }
 
-/* Autres animations */
+/* Animations */
 .slide-in {
-  animation: slideIn 2s ease-in-out forwards;
+  animation: slideIn 3s ease-in-out forwards;
 }
 
 .fade-in {
-  animation: fadeIn 2s ease-in-out forwards;
+  animation: fadeIn 7s ease-in-out forwards;
 }
 
 .zoom-in {
-  animation: zoomIn 2s ease-in-out forwards;
+  animation: zoomIn 9s ease-in-out forwards;
 }
 
 @keyframes slideIn {
@@ -91,4 +73,20 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+/* Ajout pour l'Intersection Observer */
+.presentation-section.hidden {
+  opacity: 0;
+}
+
+.presentation-section.visible {
+  opacity: 1;
+}
+
+/* Pour désactiver les animations lorsque les sections sont cachées */
+.presentation-section.hidden .slide-in,
+.presentation-section.hidden .fade-in,
+.presentation-section.hidden .zoom-in {
+  animation: none;
 }

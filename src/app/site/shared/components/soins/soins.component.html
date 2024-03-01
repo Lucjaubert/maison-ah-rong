@@ -2,26 +2,22 @@
   <div class="soin-container">
     <div class="image-container col-12">
       <img *ngIf="firstSoin && firstSoin.title" [src]="firstSoinExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
-      <!-- Assurez-vous que firstSoin et firstSoin.title sont définis avant d'accéder à ses propriétés -->
       <h3 *ngIf="firstSoin && firstSoin.title" class="card-title">{{ firstSoin.title.rendered }}</h3>
     </div>
   </div>
   <ng-container>
     <div class="container mt-10 px-0">
-      <!-- Première Soin -->
-      <div *ngIf="firstSoin && firstSoin.content">
+      <div *ngIf="firstSoin && firstSoin.content" class="soin-section zoom-in hidden">
         <p [innerHTML]="sanitizeHtml(firstSoin.content.rendered)" class="card-img-text"></p>
       </div>
     </div>
     <div class="container mt-10 px-0">
-      <!-- Deuxième Soin -->
-      <div *ngIf="secondSoin && secondSoin.content">
+      <div *ngIf="secondSoin && secondSoin.content" class="soin-section slide-in hidden">
         <p [innerHTML]="sanitizeHtml(secondSoin.content.rendered)" class="card-text-img"></p>
       </div>
     </div>
     <div class="container my-10 px-0">
-      <!-- Troisième Soin -->
-      <div *ngIf="thirdSoin && thirdSoin.content">
+      <div *ngIf="thirdSoin && thirdSoin.content" class="soin-section fade-in hidden">
         <p [innerHTML]="sanitizeHtml(thirdSoin.content.rendered)" class="card-img-text"></p>
       </div>
     </div>

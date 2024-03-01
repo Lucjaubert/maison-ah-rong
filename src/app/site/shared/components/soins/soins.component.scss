@@ -1,19 +1,81 @@
 @import "/src/styles/variables.scss";
 
-
 .soin-item {
-    .soin-container {
-        position: relative;
+  .soin-container {
+    position: relative;
 
+    .image-container {
+      position: relative;
 
-            h3 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            }
-        }
+      h3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+    }
+  }
 
-    
+  .soin-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Animations */
+.slide-in {
+  animation: slideIn 10s ease-in-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 13s ease-in-out forwards;
+}
+
+.zoom-in {
+  animation: zoomIn 7s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Pour désactiver les animations lorsque les sections sont cachées */
+.soin-section.hidden .slide-in,
+.soin-section.hidden .fade-in,
+.soin-section.hidden .zoom-in {
+  animation: none;
 }

@@ -5,34 +5,27 @@
         <img *ngIf="firstPresentation && firstPresentation.title" [src]="firstPresentationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
         <h3 class="card-title" *ngIf="firstPresentation && firstPresentation.title">{{ firstPresentation.title.rendered }}</h3>
       </div>
-
-      <!-- Première section -->
-      <section class="presentation-section slide-in" *ngIf="firstPresentation">
+      <section class="presentation-section slide-in hidden" *ngIf="firstPresentation">
         <div class="container mt-10 px-0">
           <div>
             <p [innerHTML]="sanitizeHtml(firstPresentation.content.rendered)" class="card-text-img"></p>
           </div>
         </div>
       </section>
-
-      <!-- Deuxième section avec une animation différente -->
-      <section class="presentation-section fade-in" *ngIf="secondPresentation">
+      <section class="presentation-section fade-in hidden" *ngIf="secondPresentation">
         <div class="container mt-10 px-0">
           <div>
             <p [innerHTML]="sanitizeHtml(secondPresentation.content.rendered)" class="card-img-text"></p>
           </div>
         </div>
       </section>
-
-      <!-- Troisième section avec une autre animation -->
-      <section class="presentation-section zoom-in" *ngIf="thirdPresentation">
+      <section class="presentation-section zoom-in hidden" *ngIf="thirdPresentation">
         <div class="container my-10 px-0">
           <div>
             <p [innerHTML]="sanitizeHtml(thirdPresentation.content.rendered)" class="card-text-img"></p>
           </div>
         </div>
       </section>
-
     </div>
   </ng-container>
 </div>

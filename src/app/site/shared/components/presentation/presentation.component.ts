@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { PresentationService } from '../../services/presentation.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import * as DOMPurify from 'dompurify';
@@ -8,15 +8,14 @@ import * as DOMPurify from 'dompurify';
   templateUrl: './presentation.component.html',
   styleUrls: ['./presentation.component.scss'],
 })
-export class PresentationComponent implements OnInit, AfterViewInit {
-
+export class PresentationComponent implements OnInit, AfterViewInit, OnDestroy {
   firstPresentationExtraImageUrl = 'assets/img/fond-qui-suis-je.png';
-
   firstPresentation: any | undefined;
   secondPresentation: any | undefined;
   thirdPresentation: any | undefined;
 
-  public isVisible = true;
+  private observer!: IntersectionObserver;
+  private hiddenSections!: NodeListOf<Element>; // Spécifiez le type explicitement
 
   constructor(
     public presentationService: PresentationService,
@@ -24,53 +23,55 @@ export class PresentationComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    // Première Présentation
+    this.loadPresentations();
+  }
+
+  ngAfterViewInit(): void {
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy(): void {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private loadPresentations(): void {
     this.presentationService.getPresentationById(8).subscribe((data) => {
       this.firstPresentation = data;
-      console.log('firstPresentation chargée :', this.firstPresentation);
-      console.log('isVisible dans ngOnInit :', this.isVisible);
     });
 
-    // Deuxième Présentation
     this.presentationService.getPresentationById(11).subscribe((data) => {
       this.secondPresentation = data;
     });
 
-    // Troisième Présentation
     this.presentationService.getPresentationById(12).subscribe((data) => {
       this.thirdPresentation = data;
     });
   }
 
-  ngAfterViewInit(): void {
-    // Initialiser l'observateur d'intersection ici
-    this.initializeIntersectionObserver();
-    this.isVisible = true;
-  }
+  private setupIntersectionObserver(): void {
+    if (typeof IntersectionObserver === 'function') {
+      this.hiddenSections = document.querySelectorAll('.presentation-section');
 
-  private initializeIntersectionObserver() {
-    const presentationSections = document.querySelectorAll('.presentation-section');
-    
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 1 // Observer lorsque la section entière est visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            this.observer.unobserve(entry.target); // Stop observing after intersection
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Trigger animation when 50% of the section is visible
       });
-    }, options);
 
-    presentationSections.forEach(section => {
-      observer.observe(section);
-    });
+      this.hiddenSections.forEach((section) => this.observer.observe(section));
+    } else {
+      console.error('IntersectionObserver is not supported in this browser.');
+    }
   }
-  
 
   sanitizeHtml(content: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(DOMPurify.sanitize(content));
