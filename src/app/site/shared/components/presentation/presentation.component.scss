@@ -3,30 +3,44 @@
 .presentation-item {
   .presentation-container {
     position: relative;
+
     .image-container {
       position: relative;
+      z-index: 2;
       h3 {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 1;
       }
     }
-    section {
-      display: grid;
-      place-items: center;
-      align-items: center;
-      min-height: 50vh;
-    }
+
     .presentation-section {
-      opacity: 0;
-      transform: translateY(20px); /* Translation vers le bas par défaut */
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition pour opacity et transform */
-      &.visible {
-        opacity: 1;
-        transform: translateY(0); /* Remise à zéro de la translation lorsqu'elle est visible */
+      position: relative;
+      z-index: 1;
+
+      .section-rectangle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 80px;
+        opacity: 20%;
+        background-color: transparent;
+        z-index: -1; /* Met les rectangles en arrière-plan */
       }
+    }
+
+    .first-section .section-rectangle {
+      background-color: #FF5733;
+    }
+
+    .second-section .section-rectangle {
+      background-color: #33FFC4;
+    }
+
+    .third-section .section-rectangle {
+      background-color: #3366FF;
     }
   }
 }
