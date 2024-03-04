@@ -18,15 +18,58 @@
   }
 
   .soin-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    position: relative;
 
-    &.visible {
-      opacity: 1;
-      transform: translateY(0);
+        .section-rectangle-first {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 95%; // Ajustez la largeur selon vos besoins
+            height: 820px; // Ajustez la hauteur selon vos besoins
+            opacity: 5%;
+            background-color: transparent;
+            z-index: -1; // Assurez-vous que le rectangle est en arrière-plan
+            margin-left: 15%;
+            margin-top: -5%;
+        }
+
+        .section-rectangle-second {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 105%; // Ajustez la largeur selon vos besoins
+            height: 410px; // Ajustez la hauteur selon vos besoins
+            opacity: 5%;
+            background-color: transparent; // Couleur de votre choix
+            z-index: -1; // Assurez-vous que le rectangle est en arrière-plan
+            margin-top: -2.3%;
+        }
+
+        .section-rectangle-third {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110%;
+            height: 480px;
+            opacity: 5%;
+            background-color: transparent;
+            z-index: -1; 
+            margin-left: 5%;
+            margin-top: -3.7%;
+          }
     }
-  }
+
+    .first-section .section-rectangle-first {
+        background-color: map-get($theme-colors, first-orange);
+    }
+
+    .second-section .section-rectangle-second {
+        background-color: map-get($theme-colors, second-orange);
+    }
+
+    .third-section .section-rectangle-third {
+        background-color: map-get($theme-colors, third-orange);
+    }
 }
 
 /* Animations */

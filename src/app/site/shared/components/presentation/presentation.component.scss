@@ -19,28 +19,56 @@
       position: relative;
       z-index: 1;
 
-      .section-rectangle {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 60%;
-        height: 80px;
-        opacity: 20%;
-        background-color: transparent;
-        z-index: -1; /* Met les rectangles en arrière-plan */
-      }
+    //  .section-rectangle-first {
+    //    position: absolute;
+    //    top: 0;
+    //    left: 0;
+    //    width: 75%;
+    //    height: 820px;
+    //    opacity: 8%;
+    //    background-color: transparent;
+    //    z-index: -1; 
+    //    margin-left: 2%;
+    //    margin-top: -4%;
+    //  }
+
+    //  .section-rectangle-second {
+    //    position: absolute;
+    //    top: 0;
+    //    left: 0;
+    //    width: 65%;
+    //    height: 384px;
+    //    opacity: 8%;
+    //    background-color: transparent;
+    //    z-index: -1; 
+    //    margin-left: 28%;
+    //    margin-top: -2.2%;
+    //  }
+
+    //  .section-rectangle-third {
+    //    position: absolute;
+    //    top: 0;
+    //    left: 0;
+    //    width: 70%;
+    //    height: 450px;
+    //    opacity: 8%;
+    //    background-color: transparent;
+    //    z-index: -1; 
+    //    margin-left: 5%;
+    //    margin-top: -2%;
+    //  }
     }
 
-    .first-section .section-rectangle {
-      background-color: #FF5733;
+    .first-section .section-rectangle-first {
+      background-color: map-get($theme-colors, first-orange);
     }
 
-    .second-section .section-rectangle {
-      background-color: #33FFC4;
+    .second-section .section-rectangle-second {
+      background-color: map-get($theme-colors, second-orange);
     }
 
-    .third-section .section-rectangle {
-      background-color: #3366FF;
+    .third-section .section-rectangle-third {
+      background-color: map-get($theme-colors, third-orange);
     }
   }
 }

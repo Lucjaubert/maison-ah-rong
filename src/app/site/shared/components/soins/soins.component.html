@@ -7,17 +7,20 @@
   </div>
   <ng-container>
     <div class="container mt-10 px-0">
-      <div *ngIf="firstSoin && firstSoin.content" class="soin-section zoom-in hidden">
+      <div *ngIf="firstSoin && firstSoin.content" class="soin-section zoom-in hidden first-section">
+        <div class="section-rectangle-first"></div> <!-- Rectangle de couleur -->
         <p [innerHTML]="sanitizeHtml(firstSoin.content.rendered)" class="card-img-text"></p>
       </div>
     </div>
     <div class="container mt-10 px-0">
-      <div *ngIf="secondSoin && secondSoin.content" class="soin-section slide-in hidden">
+      <div *ngIf="secondSoin && secondSoin.content" class="soin-section slide-in hidden second-section">
+        <div class="section-rectangle-second"></div> <!-- Rectangle de couleur -->
         <p [innerHTML]="sanitizeHtml(secondSoin.content.rendered)" class="card-text-img"></p>
       </div>
     </div>
     <div class="container my-10 px-0">
-      <div *ngIf="thirdSoin && thirdSoin.content" class="soin-section fade-in hidden">
+      <div *ngIf="thirdSoin && thirdSoin.content" class="soin-section fade-in hidden third-section">
+        <div class="section-rectangle-third"></div> <!-- Rectangle de couleur -->
         <p [innerHTML]="sanitizeHtml(thirdSoin.content.rendered)" class="card-img-text"></p>
       </div>
     </div>
