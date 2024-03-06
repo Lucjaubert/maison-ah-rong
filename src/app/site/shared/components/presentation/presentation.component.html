@@ -5,7 +5,7 @@
         <img *ngIf="firstPresentation && firstPresentation.title" [src]="firstPresentationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
         <h3 class="card-title" *ngIf="firstPresentation && firstPresentation.title">{{ firstPresentation.title.rendered }}</h3>
       </div>
-      <section class="presentation-section slide-in hidden first-section">
+      <section class="presentation-section first-section animate-fade-in" *ngIf="firstPresentation && firstPresentation.content">
         <div class="section-rectangle-first"></div> 
         <div class="container mt-10 px-0">
           <div>
@@ -13,7 +13,8 @@
           </div>
         </div>
       </section>
-      <section class="presentation-section fade-in hidden second-section">
+      
+      <section class="presentation-section second-section animate-slide-from-left" *ngIf="secondPresentation && secondPresentation.content">
         <div class="section-rectangle-second"></div> 
         <div class="container mt-10 px-0">
           <div>
@@ -21,7 +22,8 @@
           </div>
         </div>
       </section>
-      <section class="presentation-section zoom-in hidden third-section">
+      
+      <section class="presentation-section third-section animate-fade-in" *ngIf="thirdPresentation && thirdPresentation.content">
         <div class="section-rectangle-third"></div> 
         <div class="container my-10 px-0">
           <div>
@@ -29,6 +31,7 @@
           </div>
         </div>
       </section>
+      
     </div>
   </ng-container>
 </div>

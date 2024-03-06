@@ -7,6 +7,11 @@
 
         .image-container {
             position: relative;
+            width: 100vw; // 100% de la largeur de la fenêtre
+            max-width: 100%; // Garantit que la largeur n'excède pas la largeur de son conteneur parent
+            height: /* votre hauteur désirée */ px; // Définissez la hauteur souhaitée
+            overflow: hidden;
+            z-index: 2;
 
             h3 {
             position: absolute;

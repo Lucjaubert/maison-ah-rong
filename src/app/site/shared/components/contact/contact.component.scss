@@ -18,4 +18,40 @@
         }
 
     }
-}
+    .row {
+      // Pour les écrans au-dessus de 992px
+      @media (min-width: 992px) {
+        flex-direction: row;
+      }
+  
+      // Pour les écrans à partir de 992px
+      @media (max-width: 992px) {
+        flex-direction: column;
+      }
+    }
+  
+    .col-6 {
+      width: 100%; // Assurez-vous que les colonnes occupent toute la largeur
+  
+      // Pour les écrans au-dessus de 992px
+      @media (min-width: 992px) {
+        flex-basis: 50%;
+        max-width: 50%;
+        margin: 0;
+      }
+  
+      // Pour les écrans à partir de 992px
+      @media (max-width: 992px) {
+        flex-basis: 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+      }
+  
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    }
+  }
+
