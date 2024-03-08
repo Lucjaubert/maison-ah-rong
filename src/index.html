@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Ajoutez Bootstrap CSS -->
   <link rel="stylesheet" href="/styles/styles.scss">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iKu1E7t9EElK7p1tlnAvmDkDx4nQ+T9tSKQT4ht4MW5Gx4lO/E2fKniF" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <header id="header">
     <nav class="navbar nav-bg-custom bg-grey text-white align-items-center">
       <div class="container justify-content-end">
-        <ul class="navbar-nav d-flex flex-row align-items-center ">
-          <li class="nav-item mx-8">
+        <ul class="navbar-nav d-flex flex-row align-items-center">
+          <li class="nav-item mx-8 nav-item-logo">
             <a class="nav-link text-light nav-hover-link" href="#home">Maison Ah-Rong</a>
           </li>
           <li class="nav-item mx-8">
@@ -42,6 +42,26 @@
         </ul>
       </div>
     </nav>
+    <!-- Menu pour les écrans de 425px ou moins -->
+    <nav class="mobile-menu">
+      <button id="menu-toggle" class="menu-toggle">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+           
+      <div class="menu-items">
+        <a href="#home">Maison Ah-Rong</a>
+        <a href="#presentation">Présentation</a>
+        <a href="#soins">Soins</a>
+        <a href="#prestations">Prestations</a>
+        <a href="#booking">Prendre rendez-vous</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.instagram.com/maison_ah_rong/" target="_blank" rel="noopener noreferrer">
+          Instagram
+        </a>
+      </div>
+    </nav>
   </header>
 
   <!-- Ajoutez vos scripts ou autres dépendances ici -->
@@ -52,6 +72,89 @@
 
   <!-- Ajoutez Bootstrap JS à la fin du fichier body -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-c3V9QeM2wU6Htsxd3BR5CkPjG3d1BzdJo+K5BRFYi2DH3a4x5LcJL2STYLzQ5OYY" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyL/JBh6UpXzJ7LhKkx5K53LmPnNsk" crossorigin="anonymous"></script>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    menuToggle.addEventListener('click', function() {
+      if (mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        mobileMenu.style.height = '10vh'; // Rétablir la hauteur normale
+      } else {
+        mobileMenu.classList.add('active');
+        mobileMenu.style.height = '30vh'; // Ajuster la hauteur lorsque le menu est ouvert
+      }
+    });
+
+    // Sélectionner tous les liens du menu
+    const menuLinks = document.querySelectorAll('.menu-items a');
+
+    // Ajouter un gestionnaire d'événements clic à chaque lien
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        // Empêcher le comportement par défaut du lien
+        event.preventDefault();
+
+        // Fermer le burger-menu
+        mobileMenu.classList.remove('active');
+        mobileMenu.style.height = '10vh'; // Rétablir la hauteur normale
+
+        // Récupérer l'attribut href du lien pour obtenir l'ID de la section
+        const sectionId = this.getAttribute('href');
+
+        // Utiliser scrollTo pour déplacer la fenêtre à la section correspondante
+        window.scrollTo({
+          top: document.querySelector(sectionId).offsetTop,
+          behavior: 'smooth' // Pour une transition fluide
+        });
+      });
+    });
+
+  </script>
+  <script>
+    const mobileMenu = document.querySelector('.mobile-menu');
+    let isAtTop = true;
+    let isMouseMoving = false;
+    let hideTimeout;
+  
+    function hideNavbar() {
+      if (!isMouseMoving && !isAtTop) {
+        mobileMenu.style.height = '0';
+      }
+    }
+  
+    function showNavbar() {
+      if (isAtTop) {
+        mobileMenu.style.height = '10vh';
+      }
+    }
+  
+    function startHideTimeout() {
+      hideTimeout = setTimeout(hideNavbar, 3000);
+    }
+  
+    function resetHideTimeout() {
+      clearTimeout(hideTimeout);
+      startHideTimeout();
+    }
+  
+    function handleMouseMove() {
+      isMouseMoving = true;
+      resetHideTimeout();
+    }
+  
+    function handleScroll() {
+      isAtTop = window.scrollY === 0;
+      resetHideTimeout();
+    }
+  
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('scroll', handleScroll);
+  
+    startHideTimeout(); // Démarrer le délai initial pour masquer la navbar
+    showNavbar(); // Afficher la navbar initialement
+  </script>
+  
+  
 </body>
 </html>

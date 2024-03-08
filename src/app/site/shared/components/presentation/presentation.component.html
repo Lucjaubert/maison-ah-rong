@@ -1,30 +1,37 @@
 <div id="presentation" class="presentation-item section-offset mt-1 text-center">
-  <div class="presentation-container">
-    <div class="image-container col-12">
-      <img *ngIf="firstPresentation && firstPresentation.title" [src]="firstPresentationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
-      <h3 class="card-title" *ngIf="firstPresentation && firstPresentation.title">{{ firstPresentation.title.rendered }}</h3>
-    </div>    
-  </div>
   <ng-container>
-    <div class="container mt-10 px-0">
-      <!-- Première Présentation -->
-      <div *ngIf="firstPresentation">
-        <p [innerHTML]="sanitizeHtml(firstPresentation.content.rendered)" class="card-text-img"></p>
+    <div class="presentation-container">
+      <div class="image-container col-12">
+        <img *ngIf="firstPresentation && firstPresentation.title" [src]="firstPresentationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
+        <h3 class="card-title" *ngIf="firstPresentation && firstPresentation.title">{{ firstPresentation.title.rendered }}</h3>
       </div>
-    </div> <!-- Fermez la balise <div> correspondante ici -->
-
-    <div class="container mt-10 px-0">
-      <!-- Deuxième Présentation -->
-      <div *ngIf="secondPresentation">
-        <p [innerHTML]="sanitizeHtml(secondPresentation.content.rendered)" class="card-img-text"></p>
-      </div>
-    </div>
-
-    <div class="container my-10 px-0">
-      <!-- Troisième Présentation -->
-      <div *ngIf="thirdPresentation">
-        <p [innerHTML]="sanitizeHtml(thirdPresentation.content.rendered)" class="card-text-img"></p>
-      </div>
+      <section class="presentation-section first-section animate-fade-in" *ngIf="firstPresentation && firstPresentation.content">
+        <div class="section-rectangle-first"></div> 
+        <div class="container mt-10 px-0">
+          <div>
+            <p [innerHTML]="sanitizeHtml(firstPresentation.content.rendered)" class="card-text-img"></p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="presentation-section second-section animate-slide-from-left" *ngIf="secondPresentation && secondPresentation.content">
+        <div class="section-rectangle-second"></div> 
+        <div class="container mt-10 px-0">
+          <div>
+            <p [innerHTML]="sanitizeHtml(secondPresentation.content.rendered)" class="card-img-text"></p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="presentation-section third-section animate-fade-in" *ngIf="thirdPresentation && thirdPresentation.content">
+        <div class="section-rectangle-third"></div> 
+        <div class="container my-10 px-0">
+          <div>
+            <p [innerHTML]="sanitizeHtml(thirdPresentation.content.rendered)" class="card-text-img-2"></p>
+          </div>
+        </div>
+      </section>
+      
     </div>
   </ng-container>
 </div>

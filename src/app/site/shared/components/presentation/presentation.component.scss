@@ -2,20 +2,112 @@
 
 
 .presentation-item {
-    .presentation-container {
-        position: relative;
+  .presentation-container {
+    position: relative;
 
-        .image-container {
-            position: relative;
-
-            h3 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            }
-        }
-
+    .image-container {
+      position: relative;
+      width: 100vw; 
+      max-width: 100%; 
+      overflow: hidden;
+      z-index: 2;
+      h3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
+
+    .presentation-section {
+      position: relative;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.5s ease; 
+
+      &.first-section {
+        .section-rectangle-first {
+          background-color: map-get($theme-colors, first-orange);
+        }
+      }
+
+      &.second-section {
+        .section-rectangle-second {
+          background-color: map-get($theme-colors, second-orange);
+        }
+      }
+
+      &.third-section {
+        .section-rectangle-third {
+          background-color: map-get($theme-colors, third-orange);
+        }
+      }
+    }
+
+    .section-rectangle-first {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 75%;
+      height: 820px;
+      opacity: 8%;
+      background-color: transparent;
+      z-index: -1; 
+      margin-left: 2%;
+      margin-top: -4%;
+    }
+
+    .section-rectangle-second {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 384px;
+      opacity: 8%;
+      background-color: transparent;
+      z-index: -1; 
+      margin-left: 28%;
+      margin-top: -2.2%;
+    }
+
+    .section-rectangle-third {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70%;
+      height: 450px;
+      opacity: 8%;
+      background-color: transparent;
+      z-index: -1; 
+      margin-left: 5%;
+      margin-top: -2%;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 6s ease forwards; /* Utilise l'animation fade-in pendant 0.5s */
+  }
+
+  .animate-slide-from-left {
+    animation: slide-from-left 4s ease forwards; /* Utilise l'animation slide-from-left pendant 0.5s */
+  }
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
