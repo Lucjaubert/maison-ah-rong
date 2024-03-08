@@ -99,7 +99,37 @@ p ul li {
   }
 }
 
+.card-text-img-3 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  .wp-block-image {
+    padding-left: 3rem;
+  }
+
+  .wp-block-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
 .card-img-text {
+  align-items: center;
+
+  .wp-block-image {
+    padding-right: 3rem;
+  }
+
+  .wp-block-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.card-img-text-2 {
   align-items: center;
 
   .wp-block-image {
@@ -269,10 +299,8 @@ header#header {
   z-index: 1000;
   transition: top 1s ease-in-out;
 
-  // Pour les écrans au-dessus de 992px
+  /* Pour les écrans au-dessus de 992px */
   @media (min-width: 992px) {
-    max-width: 100%;
-    background-color: #333; // Ajout du background-color pour les écrans de 992px et plus
     .navbar {
       display: flex;
       justify-content: center;
@@ -282,10 +310,10 @@ header#header {
     }
   }
 
-  // Pour les écrans de 992px ou moins
+  /* Pour les écrans de 992px ou moins */
   @media (max-width: 992px) {
     max-width: 100vw;
-    background-color: transparent; // Suppression du background-color pour les écrans de moins de 992px
+    background-color: transparent; /* Suppression du background-color pour les écrans de moins de 992px */
     .navbar {
       display: none; /* Cacher le menu principal */
     }
@@ -355,7 +383,7 @@ header#header {
     
     /* Afficher les éléments du menu mobile lorsque la classe active est présente */
     .mobile-menu.active {
-      background-color: rgba(158, 158, 158, 0.5); // Couleur de fond avec opacité
+      background-color: rgba(158, 158, 158, 0.5); /* Couleur de fond avec opacité */
       width: 100%;
     }
     
@@ -368,6 +396,7 @@ header#header {
     }
   }
 }
+
 
 .nav-item-logo {
   // Pour les écrans de 992px ou moins
@@ -388,4 +417,27 @@ header#header {
   @media (max-width: 992px) {
     order: 2; /* Pour déplacer le menu burger à gauche */
   }
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.mat-snack-bar {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14);
+}
+
+.mat-snack-bar-content {
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.mat-mdc-snack-bar-container {
+  background-color: map-get($theme-colors, "light");
 }
