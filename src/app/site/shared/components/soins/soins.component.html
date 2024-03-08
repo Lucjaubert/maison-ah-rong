@@ -15,13 +15,13 @@
     <div class="container mt-10 px-0">
       <div *ngIf="secondSoin && secondSoin.content" class="soin-section slide-in hidden second-section">
         <div class="section-rectangle-second"></div> <!-- Rectangle de couleur -->
-        <p [innerHTML]="sanitizeHtml(secondSoin.content.rendered)" class="card-text-img"></p>
+        <p [innerHTML]="sanitizeHtml(secondSoin.content.rendered)" class="card-text-img-3"></p>
       </div>
     </div>
     <div class="container my-10 px-0">
       <div *ngIf="thirdSoin && thirdSoin.content" class="soin-section fade-in hidden third-section">
         <div class="section-rectangle-third"></div> <!-- Rectangle de couleur -->
-        <p [innerHTML]="sanitizeHtml(thirdSoin.content.rendered)" class="card-img-text"></p>
+        <p [innerHTML]="sanitizeHtml(thirdSoin.content.rendered)" class="card-img-text-2"></p>
       </div>
     </div>
   </ng-container>
