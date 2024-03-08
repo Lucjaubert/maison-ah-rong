@@ -73,8 +73,25 @@ p ul li {
   align-items: center;
 
   .wp-block-image {
-    padding-left: 10rem;
+    padding-left: 3rem;
   }
+
+  .wp-block-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.card-text-img-2 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  .wp-block-image {
+    padding-left: 3rem;
+  }
+
   .wp-block-group {
     display: flex;
     flex-direction: row;
@@ -96,8 +113,41 @@ p ul li {
   }
 }
 
-@media (max-width: 767px) {
-  .card-text-img,
+
+/* Appliquer le padding sur les écrans de moins de 993px */
+@media (max-width: 992px) {
+  .card-text-img {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .wp-block-image {
+      padding: 0;
+    }
+
+    .wp-block-group {
+      padding-top: 20px; /* Ajouter du padding en haut */
+      padding-left: 10px; /* Ajouter du padding à gauche */
+      padding-right: 10px; /* Ajouter du padding à droite */
+    }
+  }
+
+  .card-text-img-2 {
+    .wp-block-image {
+      padding: 0;
+    }
+
+    .wp-block-group {
+      display: flex;
+      flex-direction: column-reverse;  
+      align-items: center;
+      width: 99%;
+      padding-top: 10px !important; /* Ajouter du padding en haut */
+      padding-left: 10px; /* Ajouter du padding à gauche */
+      padding-right: 10px; /* Ajouter du padding à droite */
+    }
+  }
+
   .card-img-text {
     display: flex;
     flex-direction: column;
@@ -107,9 +157,12 @@ p ul li {
     }
 
     .wp-block-group {
+      padding-top: 0px !important;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      padding-left: 30px; /* Ajouter du padding à gauche */
+      padding-right: 30px; /* Ajouter du padding à droite */
     }
   }
 }

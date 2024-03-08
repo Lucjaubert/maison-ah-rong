@@ -111,5 +111,50 @@
     });
 
   </script>
+  <script>
+    const mobileMenu = document.querySelector('.mobile-menu');
+    let isAtTop = true;
+    let isMouseMoving = false;
+    let hideTimeout;
+  
+    function hideNavbar() {
+      if (!isMouseMoving && !isAtTop) {
+        mobileMenu.style.height = '0';
+      }
+    }
+  
+    function showNavbar() {
+      if (isAtTop) {
+        mobileMenu.style.height = '10vh';
+      }
+    }
+  
+    function startHideTimeout() {
+      hideTimeout = setTimeout(hideNavbar, 3000);
+    }
+  
+    function resetHideTimeout() {
+      clearTimeout(hideTimeout);
+      startHideTimeout();
+    }
+  
+    function handleMouseMove() {
+      isMouseMoving = true;
+      resetHideTimeout();
+    }
+  
+    function handleScroll() {
+      isAtTop = window.scrollY === 0;
+      resetHideTimeout();
+    }
+  
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('scroll', handleScroll);
+  
+    startHideTimeout(); // Démarrer le délai initial pour masquer la navbar
+    showNavbar(); // Afficher la navbar initialement
+  </script>
+  
+  
 </body>
 </html>

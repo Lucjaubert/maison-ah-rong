@@ -32,7 +32,7 @@ export class PresentationComponent implements OnInit {
       this.secondPresentation = data;
     });
 
-    this.presentationService.getPresentationById(12).subscribe((data) => {
+    this.presentationService.getPresentationById(176).subscribe((data) => {
       this.thirdPresentation = data;
     });
   }
