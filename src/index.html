@@ -13,7 +13,7 @@
 </head>
 <body>
   <header id="header">
-    <nav class="navbar nav-bg-custom bg-grey text-white align-items-center">
+    <nav class="navbar nav-bg-custom bg-green text-grey align-items-center">
       <div class="container justify-content-end">
         <ul class="navbar-nav d-flex flex-row align-items-center">
           <li class="nav-item mx-8 nav-item-logo">
@@ -50,7 +50,7 @@
         <span class="menu-line"></span>
       </button>
            
-      <div class="menu-items">
+      <div class="menu-items pb-5">
         <a href="#home">Maison Ah-Rong</a>
         <a href="#presentation">Présentation</a>
         <a href="#soins">Soins</a>
@@ -58,7 +58,7 @@
         <a href="#booking">Prendre rendez-vous</a>
         <a href="#contact">Contact</a>
         <a href="https://www.instagram.com/maison_ah_rong/" target="_blank" rel="noopener noreferrer">
-          Instagram
+          <img src="assets/img/instagram-blanc.png" alt="Instagram" style="height: 22px; width: 22px;">
         </a>
       </div>
     </nav>
@@ -67,50 +67,12 @@
   <!-- Ajoutez vos scripts ou autres dépendances ici -->
   <script src="/scripts/scrolling.js"></script>
   <script src="/scripts/sectionajusted.js"></script>
-
+  
   <app-root></app-root>
 
   <!-- Ajoutez Bootstrap JS à la fin du fichier body -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-c3V9QeM2wU6Htsxd3BR5CkPjG3d1BzdJo+K5BRFYi2DH3a4x5LcJL2STYLzQ5OYY" crossorigin="anonymous"></script>
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-
-    menuToggle.addEventListener('click', function() {
-      if (mobileMenu.classList.contains('active')) {
-        mobileMenu.classList.remove('active');
-        mobileMenu.style.height = '10vh'; // Rétablir la hauteur normale
-      } else {
-        mobileMenu.classList.add('active');
-        mobileMenu.style.height = '30vh'; // Ajuster la hauteur lorsque le menu est ouvert
-      }
-    });
-
-    // Sélectionner tous les liens du menu
-    const menuLinks = document.querySelectorAll('.menu-items a');
-
-    // Ajouter un gestionnaire d'événements clic à chaque lien
-    menuLinks.forEach(link => {
-      link.addEventListener('click', function(event) {
-        // Empêcher le comportement par défaut du lien
-        event.preventDefault();
-
-        // Fermer le burger-menu
-        mobileMenu.classList.remove('active');
-        mobileMenu.style.height = '10vh'; // Rétablir la hauteur normale
-
-        // Récupérer l'attribut href du lien pour obtenir l'ID de la section
-        const sectionId = this.getAttribute('href');
-
-        // Utiliser scrollTo pour déplacer la fenêtre à la section correspondante
-        window.scrollTo({
-          top: document.querySelector(sectionId).offsetTop,
-          behavior: 'smooth' // Pour une transition fluide
-        });
-      });
-    });
-
-  </script>
+  <script src="/scripts/mobilemenu.js"></script>
   <script src="/scripts/navbar.js"></script>
 </body>
 </html>

@@ -1,19 +1,19 @@
-<div id="booking" class="booking-item mt-1 mb-10 text-center">
+<div id="booking" class="booking-item mt-1 mb-lg-10 mb-5 text-center">
   <div class="background-booking bg-light-pink p-8">
-    <div class="container d-flex justify-content-center px-7 flex-column flex-md-row">
-      <div class="col-md-7 col-12 mb-4">
+    <div class="container d-flex justify-content-center px-7 flex-column flex-lg-row">
+      <div class="col-lg-7 col-12 mb-4">
         <p class="text-fs-40 text-fw-bold">Pour prendre rendez-vous avec moi à MAISON AH-RONG</p>
         <p class="text-fs-30">vous êtes prié(e) de remplir le formulaire suivant.<br>Merci.</p>
       </div>
-      <div class="col-md-5 col-12">
+      <div class="col-lg-5 col-12 container-block">
         <form [formGroup]="bookingForm" (ngSubmit)="sendEmail()">
     
           <!-- Champ Prénom -->
-          <div class="d-flex justify-content-between form-group mat-input-components">
-            <div class="row col-7">
-              <label for="first_name" class="col-form-label d-flex justify-content-start">Prénom</label>
+          <section class="d-lg-flex justify-content-between form-group mat-input-components">
+            <div class="row col-lg-7">
+              <label for="first_name" class="col-form-label">Prénom</label>
             </div>
-            <div class="row col-6">
+            <div class="row col-lg-6">
               <div class="d-flex flex-column justify-content-start">
                 <input type="text" id="first_name" formControlName="first_name" placeholder="Prénom" required class="common-input-style" />
                 <div *ngIf="bookingForm.get('first_name')?.touched && bookingForm.get('first_name')?.invalid" class="col-12 d-flex justify-content-start text-fs-10 error-message">
@@ -21,14 +21,15 @@
                 </div>
               </div>
             </div>
-          </div>
+          </section>
+          
     
           <!-- Champ Nom -->
-          <div class="d-flex justify-content-between form-group mat-input-components mt-3">
-            <div class="row col-7">
-              <label for="last_name" class="col-form-label d-flex justify-content-start">Nom</label>
+          <section class="d-lg-flex justify-content-between form-group mat-input-components mt-3">
+            <div class="row col-lg-7">
+              <label for="last_name" class="col-form-label">Nom</label>
             </div>
-            <div class="row col-6">
+            <div class="row col-lg-6">
               <div class="d-flex flex-column justify-content-start">
                 <input type="text" id="last_name" formControlName="last_name" placeholder="Nom" required class="common-input-style" />
                 <div *ngIf="bookingForm.get('last_name')?.touched && bookingForm.get('last_name')?.invalid" class="col-12 d-flex justify-content-start text-fs-10 error-message">
@@ -36,14 +37,14 @@
                 </div>
               </div>
             </div>
-          </div>
+          </section>
     
           <!-- Champ Adresse e-mail -->
-          <div class="d-flex justify-content-between form-group mat-input-components mt-3">
-            <div class="row col-7">
-              <label for="email" class="col-form-label d-flex justify-content-start">Adresse e-mail</label>
+          <section class="d-lg-flex justify-content-between form-group mat-input-components mt-3">
+            <div class="row col-lg-7">
+              <label for="email" class="col-form-label">Adresse e-mail</label>
             </div>
-            <div class="row col-6">
+            <div class="row col-lg-6">
               <div class="d-flex flex-column justify-content-start">
                 <input type="email" id="email" formControlName="email" placeholder="Adresse e-mail" required class="common-input-style" />
                 <div *ngIf="bookingForm.get('email')?.touched && bookingForm.get('email')?.invalid" class="col-12 d-flex justify-content-start text-fs-10 error-message">
@@ -51,29 +52,45 @@
                 </div>
               </div>
             </div>
-          </div>
+          </section>
+
+          <!-- Champ Numéro de téléphone -->
+          <section class="d-lg-flex justify-content-between form-group mat-input-components mt-3">
+            <div class="row col-lg-7">
+              <label for="phone" class="col-form-label">Numéro de téléphone</label>
+            </div>
+            <div class="row col-lg-6">
+              <div class="d-flex flex-column justify-content-start">
+                <input type="tel" id="phone" formControlName="phone" placeholder="Numéro de téléphone" required class="common-input-style" />
+                <div *ngIf="bookingForm.get('phone')?.touched && bookingForm.get('phone')?.invalid" class="col-12 d-flex justify-content-start text-fs-10 error-message">
+                  {{ errorMessages.phone }}
+                </div>
+              </div>
+            </div>
+          </section>
+
     
           <!-- Champ Date et heure du rendez-vous -->
-          <div class="d-flex justify-content-between form-group mat-input-components mt-3">
-            <div class="row col-7">
-              <label for="booking_date" class="col-form-label d-flex justify-content-start">Date et heure du rendez-vous</label>
+          <section class="d-lg-flex justify-content-between form-group mat-input-components mt-3">
+            <div class="row col-lg-7">
+              <label for="booking_date" class="col-form-label">Date et heure du rendez-vous</label>
             </div>
-            <div class="row col-6">
+            <div class="row col-lg-6">
               <div class="d-flex flex-column justify-content-start">
-                <input type="datetime-local" id="booking_date" formControlName="booking_date" placeholder="Date et heure du rendez-vous" required class="common-input-style" />
+                <input #bookingDateInput type="datetime-local" id="booking_date_input" formControlName="booking_date" required class="common-input-style" (change)="onDateChange()"/>
                 <div *ngIf="bookingForm.get('booking_date')?.touched && bookingForm.get('booking_date')?.invalid" class="col-12 d-flex justify-content-start text-fs-10 error-message">
                   {{ errorMessages.booking_date }}
                 </div>
               </div>
             </div>
-          </div>
-    
+          </section>
+
           <!-- Choix du massage -->
-          <div class="d-flex justify-content-between form-group mat-input-components mt-3">
-            <div class="row col-7">
-              <label for="massage_type" class="col-form-label d-flex justify-content-start">Type de massage</label>
+          <section class="d-lg-flex justify-content-between form-group mat-input-components mt-3">
+            <div class="row col-lg-7">
+              <label for="massage_type" class="col-form-label">Type de massage</label>
             </div>
-            <div class="row col-6">
+            <div class="row col-lg-6">
               <div class="d-flex flex-column justify-content-start">
                 <select id="massage_type" formControlName="massage_type" placeholder="Type de massage" required class="common-input-style mat-input-components">
                   <option value="chi_nei_tsang">Chi Nei Tsang</option>
@@ -82,14 +99,14 @@
                 </select>
               </div>
             </div>
-          </div>
+          </section>
     
           <!-- Pour le type de massage "Chi Nei Tsang" -->
-          <div *ngIf="bookingForm && bookingForm.get('massage_type')?.value === 'chi_nei_tsang'" class="d-flex justify-content-between form-group mat-input-components mt-3">
-            <div class="row col-7">
-              <label for="session_count_chi" class="col-form-label d-flex justify-content-start">Nombre de séances</label>
+          <section *ngIf="bookingForm && bookingForm.get('massage_type')?.value === 'chi_nei_tsang'" class="d-lg-flex justify-content-between form-group mat-input-components mt-3">
+            <div class="row col-lg-7">
+              <label for="session_count_chi" class="col-form-label">Nombre de séances</label>
             </div>
-            <div class="row col-6">
+            <div class="row col-lg-6">
               <div class="d-flex flex-column justify-content-start">
                 <select id="session_count_chi" formControlName="session_count" placeholder="Nombre de séances" required class="common-input-style mat-input-components">
                   <option value="1">1 séance</option>
@@ -98,14 +115,14 @@
                 </select>
               </div>
             </div>
-          </div>
+          </section>
     
           <!-- Pour le type de massage "Energetic Massage" -->
-          <div *ngIf="bookingForm && bookingForm.get('massage_type')?.value === 'energetic_massage'" class="d-flex justify-content-between form-group mat-input-components mt-3">
-            <div class="row col-7">
-              <label for="session_count_energetic" class="col-form-label d-flex justify-content-start">Nombre de séances</label>
+          <section *ngIf="bookingForm && bookingForm.get('massage_type')?.value === 'energetic_massage'" class="d-lg-flex justify-content-between form-group mat-input-components mt-3">
+            <div class="row col-lg-7">
+              <label for="session_count_energetic" class="col-form-label">Nombre de séances</label>
             </div>
-            <div class="row col-6">
+            <div class="row col-lg-6">
               <div class="d-flex flex-column justify-content-start">
                 <select id="session_count_energetic" formControlName="session_count" placeholder="Nombre de séances" required class="common-input-style mat-input-components">
                   <option value="1">1 séance</option>
@@ -114,23 +131,23 @@
                 </select>
               </div>
             </div>
-          </div>
+          </section>
     
           <!-- Pour le type de massage "Korean Relaxation" -->
-          <div *ngIf="bookingForm && bookingForm.get('massage_type')?.value === 'korean_relaxation'" class="d-flex justify-content-between form-group mat-input-components mt-3">
-            <div class="row col-7">
-              <label for="session_count_relax" class="col-form-label d-flex justify-content-start">Nombre de séances</label>
+          <section *ngIf="bookingForm && bookingForm.get('massage_type')?.value === 'korean_relaxation'" class="d-lg-flex justify-content-between form-group mat-input-components mt-3">
+            <div class="row col-lg-7">
+              <label for="session_count_relax" class="col-form-label">Nombre de séances</label>
             </div>
-            <div class="row col-6">
+            <div class="row col-lg-6">
               <div class="d-flex flex-column justify-content-start">
                 <select id="session_count_relax" formControlName="session_count" placeholder="Nombre de séances" required class="common-input-style mat-input-components">
                   <option value="1">1 séance</option>
                 </select>
               </div>
             </div>
-          </div>
+          </section>
     
-          <button class="btn btn-grey mt-7" type="submit">Réserver</button>
+          <button class="btn btn-grey mt-lg-7 mt-7 ml-5" type="submit">Réserver</button>
         </form>
       </div>
     </div>      

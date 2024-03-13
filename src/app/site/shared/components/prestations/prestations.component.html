@@ -1,29 +1,29 @@
 <div id="prestations" class="prestation-item mt-1 text-center">
-  <div class="prestation-container">
-    <div class="image-container col-12">
-      <img *ngIf="firstPrestation && firstPrestation.title" [src]="firstPrestationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
-      <!-- Assurez-vous que firstPrestation et firstPrestation.title sont définis avant d'accéder à ses propriétés -->
-      <h3 *ngIf="firstPrestation && firstPrestation.title" class="card-title">{{ firstPrestation.title.rendered }}</h3>
-    </div>
-  </div>
   <ng-container>
-    <!-- Première Prestation -->
-    <div class="container mt-10 px-0">
-      <div *ngIf="firstPrestation && firstPrestation.content">
-        <p [innerHTML]="sanitizeHtml(firstPrestation.content.rendered)"></p>
+    <div class="prestation-container">
+      <div class="image-container col-12">
+        <img *ngIf="firstPrestation && firstPrestation.title" [src]="firstPrestationExtraImageUrl" alt="Extra Image 1" class="card-img-background extra-image">
+        <!-- Assurez-vous que firstPrestation et firstPrestation.title sont définis avant d'accéder à ses propriétés -->
+        <h3 *ngIf="firstPrestation && firstPrestation.title" class="card-title">{{ firstPrestation.title.rendered }}</h3>
       </div>
-    </div>
-    <div  class="container mt-10 px-0">
+      <!-- Première Prestation -->
+      <section class="container mt-10 px-0" *ngIf="firstPrestation && firstPrestation.content">
+        <div>
+          <p [innerHTML]="sanitizeHtml(firstPrestation.content.rendered)"></p>
+        </div>
+      </section>
       <!-- Deuxième Prestation -->
-      <div *ngIf="secondPrestation && secondPrestation.content">
-        <p [innerHTML]="sanitizeHtml(secondPrestation.content.rendered)"></p>
-      </div>
-    </div>
-    <div class="container my-10 px-0">
+      <section class="container mt-10 px-0" *ngIf="secondPrestation && secondPrestation.content">
+        <div>
+          <p [innerHTML]="sanitizeHtml(secondPrestation.content.rendered)"></p>
+        </div>
+      </section>
       <!-- Troisième Prestation -->
-      <div *ngIf="thirdPrestation && thirdPrestation.content">
-        <p [innerHTML]="sanitizeHtml(thirdPrestation.content.rendered)"></p>
-      </div>
+      <section class="container my-10 px-0" *ngIf="thirdPrestation && thirdPrestation.content">
+        <div>
+          <p [innerHTML]="sanitizeHtml(thirdPrestation.content.rendered)"></p>
+        </div>
+      </section>
     </div>
   </ng-container>
 </div>
