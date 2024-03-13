@@ -28,10 +28,26 @@
       background-color: map-get($theme-colors, primary)!important;
     }
 
+    // Pour les écrans jusqu'à 992px
     @media (max-width: 992px) {
-      .col-md-7,
-      .col-md-5 {
-        flex-direction: column;
+      .container-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    // Pour les écrans à partir de 993px
+    @media (min-width: 993px) {
+      .col-lg-7 label.col-form-label {
+          text-align: left; // Alignement du texte à gauche pour les écrans larges
+      }
+    }
+
+    // Pour les écrans jusqu'à 992px
+    @media (max-width: 992px) {
+      .col-lg-7 label.col-form-label {
+          text-align: center; // Alignement du texte au centre pour les écrans étroits
       }
     }
 }

@@ -1,57 +1,63 @@
 @import "/src/styles/variables.scss";
 
-
 .contact-item {
-    .contact-container {
-        position: relative;
+  .contact-container {
+      position: relative;
 
-        .image-container {
-            position: relative;
+      .image-container {
+          position: relative;
 
-            h3 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            }
-        }
-
-    }
-    .row {
-      // Pour les écrans au-dessus de 992px
-      @media (min-width: 992px) {
-        flex-direction: row;
+          h3 {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 1;
+          }
       }
-  
-      // Pour les écrans à partir de 992px
-      @media (max-width: 992px) {
-        flex-direction: column;
-      }
-    }
-  
-    .col-6 {
-      width: 100%; // Assurez-vous que les colonnes occupent toute la largeur
-  
-      // Pour les écrans au-dessus de 992px
-      @media (min-width: 992px) {
-        flex-basis: 50%;
-        max-width: 50%;
-        margin: 0;
-      }
-  
-      // Pour les écrans à partir de 992px
-      @media (max-width: 992px) {
-        flex-basis: 100%;
-        max-width: 100%;
-        margin-bottom: 30px;
-      }
-  
-      iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-      }
-    }
   }
 
+  .row {
+      // Pour les écrans au-dessus de 992px
+      @media (min-width: 992px) {
+          flex-direction: row;
+      }
+
+      // Pour les écrans à partir de 992px
+      @media (max-width: 992px) {
+          flex-direction: column;
+      }
+  }
+
+  .col-lg-6 {
+      width: 100%; 
+      max-width: 100%; // Assurez-vous que les colonnes occupent toute la largeur
+
+      // Pour les écrans au-dessus de 992px
+      @media (min-width: 992px) {
+          min-height: 276px;
+          max-width: 50%;
+          margin: 0;
+      }
+
+      // Pour les écrans à partir de 992px
+      @media (max-width: 992px) {
+          flex-basis: 100%;
+          max-width: 100%;
+          margin-bottom: 30px;
+      }
+
+      iframe {
+          width: 100%;
+          height: 30%; // Limitez la hauteur de la carte à 30% de la hauteur de son conteneur
+          border: 0;
+      }
+  }
+
+  .map-container {
+      height: 150%; // Définit la hauteur du conteneur de la carte sur 100%
+
+      /* Styles supplémentaires facultatifs pour le conteneur de la carte */
+      padding: 10px; /* Ajustez le padding ou la marge au besoin */
+  }
+}

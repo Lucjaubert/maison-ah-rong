@@ -25,7 +25,7 @@ import { PresentationModule } from './site/shared/components/presentation/presen
     AppRoutingModule,
     MainPageModule,
     FooterModule,
-    PresentationModule
+    PresentationModule,
   ],
 })
 export class AppModule {}

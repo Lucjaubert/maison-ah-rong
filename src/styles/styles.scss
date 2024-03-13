@@ -205,8 +205,8 @@ p ul li {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      padding-left: 30px; /* Ajouter du padding à gauche */
-      padding-right: 30px; /* Ajouter du padding à droite */
+      padding-left: 40px; /* Ajouter du padding à gauche */
+      padding-right: 40px; /* Ajouter du padding à droite */
     }
   }
 
@@ -285,6 +285,26 @@ p ul li {
   margin-top: -100px;
 }
 
+.prestation-card {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 992px) {
+  .prestation-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .border-container-prestations {
+    border: 1px solid map-get($theme-colors, grey) !important;
+    padding: 30px !important;
+    margin: 10px !important;
+    box-sizing: border-box !important;
+  }
+}
+
 .border-container-prestations {
   border: 1px solid map-get($theme-colors, grey) !important;
   padding: 10px !important;
@@ -344,7 +364,7 @@ header#header {
     .menu-line {
       width: 100%;
       height: 2px;
-      background-color: white;
+      background-color: map-get($theme-colors, "grey-light");
       margin: 5px 0;
       display: block;
       transition: transform 0.3s ease;
@@ -352,6 +372,7 @@ header#header {
     
     .active .menu-line:nth-child(1) {
       transform: translateY(7px) rotate(45deg); /* Ajuster la translation pour centrer la croix */
+      background-color: map-get($theme-colors, "white");
     }
     
     .active .menu-line:nth-child(2) {
@@ -360,6 +381,7 @@ header#header {
     
     .active .menu-line:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg); /* Ajuster la translation pour centrer la croix */
+      background-color: map-get($theme-colors, "white");
     }
     
     .menu-items {
@@ -383,7 +405,7 @@ header#header {
     
     /* Afficher les éléments du menu mobile lorsque la classe active est présente */
     .mobile-menu.active {
-      background-color: rgba(158, 158, 158, 0.5); /* Couleur de fond avec opacité */
+      background-color: map-get($theme-colors, "green-light");
       width: 100%;
     }
     
@@ -440,4 +462,29 @@ header#header {
 
 .mat-mdc-snack-bar-container {
   background-color: map-get($theme-colors, "light");
+}
+
+// Styles spécifiques pour les écrans de moins de 993px
+@media (max-width: 992px) {
+  .cdk-overlay-container {
+    position: fixed;
+    bottom: 52vh;
+    left: 0; // Modifier la position pour centrer la snackbar
+    right: 0; // Modifier la position pour centrer la snackbar
+    z-index: 1000;
+  }
+
+  .mat-snack-bar {
+    width: 300px; // Ajustez la largeur si nécessaire
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50%; // Centrer verticalement
+    margin-bottom: -7rem; // Ajustement pour centrer correctement
+    margin: 0 10px; // Ajustez la marge si nécessaire
+  }
+
+  .mat-mdc-snack-bar-container {
+    width: 95vw !important;
+    text-align: center;
+  }
 }
