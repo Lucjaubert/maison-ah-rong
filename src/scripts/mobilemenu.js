@@ -7,7 +7,7 @@ const menuToggle = document.getElementById('menu-toggle');
         mobileMenu.style.height = '10vh'; // Rétablir la hauteur normale
       } else {
         mobileMenu.classList.add('active');
-        mobileMenu.style.height = '34vh'; // Ajuster la hauteur lorsque le menu est ouvert
+        mobileMenu.style.height = '35vh'; // Ajuster la hauteur lorsque le menu est ouvert
       }
     });
 

@@ -62,7 +62,7 @@
       top: 0;
       left: 0;
       width: 65%;
-      height: 384px;
+      height: 398.5px;
       opacity: 8%;
       background-color: transparent;
       z-index: -1; 
@@ -111,3 +111,10 @@
   }
 }
 
+@media (max-width: 425px) {
+  .section-rectangle-first,
+  .section-rectangle-second,
+  .section-rectangle-third {
+    display: none;
+  }
+}
