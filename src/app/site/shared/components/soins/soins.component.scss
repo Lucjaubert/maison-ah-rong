@@ -40,10 +40,10 @@
 
         .section-rectangle-second {
             position: absolute;
-            top: 0;
+            top: -2px;
             left: 0;
             width: 105%; // Ajustez la largeur selon vos besoins
-            height: 410px; // Ajustez la hauteur selon vos besoins
+            height: 412px; // Ajustez la hauteur selon vos besoins
             opacity: 5%;
             background-color: transparent; // Couleur de votre choix
             z-index: -1; // Assurez-vous que le rectangle est en arrière-plan
@@ -52,10 +52,10 @@
 
         .section-rectangle-third {
             position: absolute;
-            top: 0;
+            top: 16px;
             left: 0;
-            width: 100%;
-            height: 480px;
+            width: 80%;
+            height: 465px;
             opacity: 5%;
             background-color: transparent;
             z-index: -1; 
@@ -126,4 +126,12 @@
 .soin-section.hidden .fade-in,
 .soin-section.hidden .zoom-in {
   animation: none;
+}
+
+@media (max-width: 425px) {
+  .section-rectangle-first,
+  .section-rectangle-second,
+  .section-rectangle-third {
+    display: none;
+  }
 }

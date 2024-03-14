@@ -2,7 +2,7 @@
   <div class="container pb-lg-10 py-5">
     <div *ngIf="firstContact" class="d-flex justify-content-between align-items-center">
       <div class="col-lg-6 col-12">
-        <p class="text-fs-40 text-fw-bold p-4">Pour me contacter</p>
+        <p class="text-fs-40 text-grey text-fw-bold p-4">Pour me contacter</p>
         <p [innerHTML]="sanitizeHtml(firstContact.content.rendered)"></p>
         
         <div class="social-icons">

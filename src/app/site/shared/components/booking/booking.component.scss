@@ -25,7 +25,11 @@
     }
 
     .btn {
-      background-color: map-get($theme-colors, primary)!important;
+      background-color: map-get($theme-colors, "green")!important;
+
+      &:hover {
+        background-color: map-get($theme-colors, "green-dark")!important;
+      }
     }
 
     // Pour les écrans jusqu'à 992px

@@ -9,19 +9,19 @@
       <!-- Première Prestation -->
       <section class="container mt-10 px-0" *ngIf="firstPrestation && firstPrestation.content">
         <div>
-          <p [innerHTML]="sanitizeHtml(firstPrestation.content.rendered)"></p>
+          <p [innerHTML]="sanitizeHtml(firstPrestation.content.rendered)" class="text-grey"></p>
         </div>
       </section>
       <!-- Deuxième Prestation -->
       <section class="container mt-10 px-0" *ngIf="secondPrestation && secondPrestation.content">
         <div>
-          <p [innerHTML]="sanitizeHtml(secondPrestation.content.rendered)"></p>
+          <p [innerHTML]="sanitizeHtml(secondPrestation.content.rendered)" class="text-grey"></p>
         </div>
       </section>
       <!-- Troisième Prestation -->
       <section class="container my-10 px-0" *ngIf="thirdPrestation && thirdPrestation.content">
         <div>
-          <p [innerHTML]="sanitizeHtml(thirdPrestation.content.rendered)"></p>
+          <p [innerHTML]="sanitizeHtml(thirdPrestation.content.rendered)" class="text-grey"></p>
         </div>
       </section>
     </div>

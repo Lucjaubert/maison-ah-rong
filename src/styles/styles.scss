@@ -288,6 +288,7 @@ p ul li {
 .prestation-card {
   display: flex;
   flex-direction: row;
+  color: map-get($theme-colors, grey);
 }
 
 @media (max-width: 992px) {
