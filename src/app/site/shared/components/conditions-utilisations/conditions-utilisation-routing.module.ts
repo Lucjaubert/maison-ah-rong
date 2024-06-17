@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ConditionsUtilisationComponent } from './conditions-utilisation.component';
 
-const routes = [
+  const routes: Routes = [
     { path: '', component: ConditionsUtilisationComponent },
   ];
+  
   
   @NgModule({
     imports: [
@@ -12,4 +13,4 @@ const routes = [
     ],
     exports: [RouterModule]
   })
-  export class ConditionsUtilisationModule { }
+  export class ConditionsUtilisationRoutingModule { }

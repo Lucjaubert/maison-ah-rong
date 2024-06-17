@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:stats": "ng build --configuration production --stats-json",
+    "analyze": "webpack-bundle-analyzer dist/maison-ah-rong/stats.json",
+    "serve": "node server.js"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +26,9 @@
     "axios": "^1.6.7",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.2",
+    "compression": "^1.7.4",
     "dompurify": "^3.0.6",
+    "express": "^4.19.2",
     "ngx-page-scroll": "^12.0.0",
     "ngx-page-scroll-core": "^12.0.0",
     "rxjs": "~7.8.0",
@@ -36,6 +41,7 @@
     "@angular-devkit/build-angular": "^17.0.0",
     "@angular/cli": "~17.0.0",
     "@angular/compiler-cli": "^17.0.0",
+    "@fullhuman/postcss-purgecss": "^6.0.0",
     "@types/dompurify": "^3.0.5",
     "@types/jasmine": "~4.3.0",
     "intersection-observer": "^0.12.2",
@@ -45,6 +51,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.2.2"
+    "typescript": "~5.2.2",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }
