@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PrestationsService {
-  private apiUrl = 'https://maisonahrong.com/wp-json/wp/v2/prestation/';
+  private apiUrl = `${environment.apiUrl}prestation/`;
 
   constructor(private http: HttpClient) {}
 
