@@ -353,7 +353,7 @@ header#header {
       left: 10px;
       transform: translateY(-50%);
       width: 40px;
-      height: 40px;
+      height: 20px;
       cursor: pointer;
       background-color: transparent;
       border: none;
@@ -370,7 +370,7 @@ header#header {
     }
     
     .active .menu-line:nth-child(1) {
-      transform: translateY(7px) rotate(45deg); 
+      transform: translateY(6px) rotate(45deg); 
       background-color: map-get($theme-colors, "white");
     }
     
@@ -379,7 +379,7 @@ header#header {
     }
     
     .active .menu-line:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg); /* Ajuster la translation pour centrer la croix */
+      transform: translateY(-11px) rotate(-45deg); 
       background-color: map-get($theme-colors, "white");
     }
     
