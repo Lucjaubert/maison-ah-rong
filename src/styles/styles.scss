@@ -320,32 +320,30 @@ header#header {
   z-index: 1000;
   transition: top 1s ease-in-out;
 
-  /* Pour les écrans au-dessus de 992px */
   @media (min-width: 992px) {
     .navbar {
       display: flex;
       justify-content: center;
     }
     .mobile-menu {
-      display: none; /* Cacher le menu burger */
+      display: none; 
     }
   }
 
-  /* Pour les écrans de 992px ou moins */
   @media (max-width: 992px) {
     max-width: 100vw;
-    background-color: transparent; /* Suppression du background-color pour les écrans de moins de 992px */
+    background-color: transparent; 
     .navbar {
-      display: none; /* Cacher le menu principal */
+      display: none; 
     }
 
     .mobile-menu {
-      display: flex; /* Afficher le menu mobile par défaut */
+      display: flex; 
       flex-direction: column;
       justify-content: space-between;
-      align-items: center; /* Centrer les éléments horizontalement */
+      align-items: center;
       color: white;
-      height: 7vh; /* Hauteur de la moitié de l'écran */
+      height: 7vh; 
       position: relative;
     }
     
@@ -354,8 +352,8 @@ header#header {
       top: 50%;
       left: 10px;
       transform: translateY(-50%);
-      width: 30px;
-      height: 24px;
+      width: 40px;
+      height: 40px;
       cursor: pointer;
       background-color: transparent;
       border: none;
@@ -366,13 +364,13 @@ header#header {
       width: 100%;
       height: 2px;
       background-color: map-get($theme-colors, "grey-light");
-      margin: 5px 0;
+      margin: 7px 0;
       display: block;
       transition: transform 0.3s ease;
     }
     
     .active .menu-line:nth-child(1) {
-      transform: translateY(7px) rotate(45deg); /* Ajuster la translation pour centrer la croix */
+      transform: translateY(7px) rotate(45deg); 
       background-color: map-get($theme-colors, "white");
     }
     

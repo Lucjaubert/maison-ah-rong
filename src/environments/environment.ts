@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://maisonahrong.com/wp-json/maison-ah-rong/v1/',
+  apiUrl: 'https://maisonahrong.com/wp-json/wp/v2/',
   sendMailUrl: 'https://maisonahrong.com/wp-json/maison-ah-rong/v1/send-mail/'
 };
