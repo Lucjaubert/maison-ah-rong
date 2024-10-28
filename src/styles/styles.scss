@@ -355,7 +355,7 @@ header#header {
       width: 40px;
       height: 20px;
       cursor: pointer;
-      background-color: transparent;
+      background-color: map-get($colors, "green-light");
       border: none;
       z-index: 2;
     }

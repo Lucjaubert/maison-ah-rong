@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { PolitiqueDeConfidentialiteComponent } from './politique-de-confidentialite.component';
 
-const routes = [
+const routes: Routes = [
     { path: '', component: PolitiqueDeConfidentialiteComponent },
   ];
   
@@ -12,5 +12,5 @@ const routes = [
     ],
     exports: [RouterModule]
   })
-  export class PolitiqueDeConfidentialiteModule { }
+  export class PolitiqueDeConfidentialiteRoutingModule { }
   

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import * as DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +12,7 @@ export class ContactComponent implements OnInit {
   firstContact: any | undefined;
   secondContact: any | undefined;
 
-  constructor(private contactService: ContactService, private sanitizer: DomSanitizer,) {}
+  constructor(private contactService: ContactService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.contactService.getContactById(42).subscribe((data) => {

@@ -17,28 +17,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/maison-ah-rong",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "src/scripts",
-                "output": "/scripts/"
-              }
-            ],
-            "styles": [
-              "src/styles/styles.scss"
-            ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "dompurify"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles/styles.scss"],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -48,27 +35,13 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "2.5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "13kb",
-                  "maximumError": "15kb"
-                }
-              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "baseHref": "/"
+              "buildOptimizer": true
             },
             "development": {
               "buildOptimizer": false,
@@ -77,8 +50,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "aot": false,
-              "baseHref": "/"
+              "aot": false
             }
           },
           "defaultConfiguration": "production"
@@ -98,10 +70,31 @@
           },
           "defaultConfiguration": "development"
         },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/maison-ah-rong-server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "maison-ah-rong:build"
+            "browserTarget": "maison-ah-rong:build"
           }
         },
         "test": {
@@ -111,15 +104,52 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles/styles.scss"],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "tsconfig.server.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "maison-ah-rong:build:development",
+              "serverTarget": "maison-ah-rong:server:development"
+            },
+            "production": {
+              "browserTarget": "maison-ah-rong:build:production",
+              "serverTarget": "maison-ah-rong:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "maison-ah-rong:build:production",
+              "serverTarget": "maison-ah-rong:server:production"
+            },
+            "development": {
+              "browserTarget": "maison-ah-rong:build:development",
+              "serverTarget": "maison-ah-rong:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

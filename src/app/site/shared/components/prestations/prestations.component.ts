@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrestationsService } from '../../services/prestations.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import * as DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify';
 
 @Component({
   selector: 'app-prestations',

@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { SoinsService } from '../../services/soins.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import * as DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify';
 
 @Component({
   selector: 'app-soins',
@@ -20,7 +20,7 @@ export class SoinsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   firstSoinExtraImageUrl = 'assets/img/fond-soins.png';
 
-  private observer?: IntersectionObserver; // Make observer optional
+  private observer?: IntersectionObserver; 
 
   constructor(
     public soinsService: SoinsService,
@@ -28,34 +28,28 @@ export class SoinsComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // Load data for first, second, and third soin
     this.loadSoins();
   }
 
   ngAfterViewInit(): void {
-    // Setup Intersection Observer after view initialization
     this.setupIntersectionObserver();
   }
 
   ngOnDestroy(): void {
-    // Disconnect observer when component is destroyed
     if (this.observer) {
       this.observer.disconnect();
     }
   }
 
   private loadSoins(): void {
-    // Premier Soin
     this.soinsService.getSoinsById(32).subscribe((data) => {
       this.firstSoin = data;
     });
 
-    // Deuxième Soin
     this.soinsService.getSoinsById(34).subscribe((data) => {
       this.secondSoin = data;
     });
 
-    // Troisième Soin
     this.soinsService.getSoinsById(36).subscribe((data) => {
       this.thirdSoin = data;
     });
@@ -67,13 +61,13 @@ export class SoinsComponent implements OnInit, AfterViewInit, OnDestroy {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            this.observer?.unobserve(entry.target); // Stop observing after intersection
+            this.observer?.unobserve(entry.target); 
           }
         });
       }, {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5, // Trigger animation when 50% of the section is visible
+        threshold: 0.5, 
       });
 
       const sections = document.querySelectorAll('.soin-container');

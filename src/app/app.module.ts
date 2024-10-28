@@ -21,7 +21,9 @@ import { PresentationModule } from './site/shared/components/presentation/presen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([]), 
+    RouterModule.forRoot([], {
+    initialNavigation: 'enabledBlocking'
+}), 
     AppRoutingModule,
     MainPageModule,
     FooterModule,
