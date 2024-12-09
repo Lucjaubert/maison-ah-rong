@@ -1,31 +1,33 @@
 @import "/src/styles/variables.scss";
 
-
 .prestation-item {
-    .prestation-container {
-        position: relative;
+  .prestation-container {
+    position: relative;
 
-        .image-container {
-            position: relative;
-            width: 100vw; // 100% de la largeur de la fenêtre
-            max-width: 100%; // Garantit que la largeur n'excède pas la largeur de son conteneur parent
-            height: /* votre hauteur désirée */ px; // Définissez la hauteur souhaitée
-            overflow: hidden;
-            z-index: 2;
+    .image-container {
+      position: relative;
+      width: 100vw;
+      max-width: 100%;
+      overflow: visible;
+      z-index: 2;
 
-            h3 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            }
-        }
+      img.card-img-background.extra-image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
+      h3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
     }
-}   
+  }
+}
 
 
 
-  
-  
+
