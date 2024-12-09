@@ -6,11 +6,16 @@
 
     .image-container {
       position: relative;
-      width: 100vw; // 100% de la largeur de la fenêtre
-      max-width: 100%; // Garantit que la largeur n'excède pas la largeur de son conteneur parent
-      height: /* votre hauteur désirée */ px; // Définissez la hauteur souhaitée
-      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      overflow: visible;
       z-index: 2;
+
+      img.card-img-background.extra-image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
       h3 {
         position: absolute;
@@ -25,107 +30,56 @@
   .soin-section {
     position: relative;
 
-        .section-rectangle-first {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 95%; // Ajustez la largeur selon vos besoins
-            height: 820px; // Ajustez la hauteur selon vos besoins
-            opacity: 5%;
-            background-color: transparent;
-            z-index: -1; // Assurez-vous que le rectangle est en arrière-plan
-            margin-left: 15%;
-            margin-top: -5%;
-        }
-
-        .section-rectangle-second {
-            position: absolute;
-            top: -2px;
-            left: 0;
-            width: 105%; // Ajustez la largeur selon vos besoins
-            height: 412px; // Ajustez la hauteur selon vos besoins
-            opacity: 5%;
-            background-color: transparent; // Couleur de votre choix
-            z-index: -1; // Assurez-vous que le rectangle est en arrière-plan
-            margin-top: -2.3%;
-        }
-
-        .section-rectangle-third {
-            position: absolute;
-            top: 16px;
-            left: 0;
-            width: 80%;
-            height: 465px;
-            opacity: 5%;
-            background-color: transparent;
-            z-index: -1; 
-            margin-left: 5%;
-            margin-top: -3.7%;
-          }
+    .section-rectangle-first {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 95%;
+      height: 820px;
+      opacity: 0.05;
+      background-color: transparent;
+      z-index: -1;
+      margin-left: 15%;
+      margin-top: -5%;
     }
 
-    .first-section .section-rectangle-first {
-        background-color: map-get($theme-colors, first-orange);
+    .section-rectangle-second {
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 105%;
+      height: 412px;
+      opacity: 0.05;
+      background-color: transparent;
+      z-index: -1;
+      margin-top: -2.3%;
     }
 
-    .second-section .section-rectangle-second {
-        background-color: map-get($theme-colors, second-orange);
+    .section-rectangle-third {
+      position: absolute;
+      top: 16px;
+      left: 0;
+      width: 80%;
+      height: 465px;
+      opacity: 0.05;
+      background-color: transparent;
+      z-index: -1;
+      margin-left: 5%;
+      margin-top: -3.7%;
     }
-
-    .third-section .section-rectangle-third {
-        background-color: map-get($theme-colors, third-orange);
-    }
-}
-
-/* Animations */
-.slide-in {
-  animation: slideIn 10s ease-in-out forwards;
-}
-
-.fade-in {
-  animation: fadeIn 13s ease-in-out forwards;
-}
-
-.zoom-in {
-  animation: zoomIn 7s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  .first-section .section-rectangle-first {
+    background-color: map-get($theme-colors, first-orange);
   }
-  to {
-    opacity: 1;
-  }
-}
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0);
-    opacity: 0;
+  .second-section .section-rectangle-second {
+    background-color: map-get($theme-colors, second-orange);
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
 
-/* Pour désactiver les animations lorsque les sections sont cachées */
-.soin-section.hidden .slide-in,
-.soin-section.hidden .fade-in,
-.soin-section.hidden .zoom-in {
-  animation: none;
+  .third-section .section-rectangle-third {
+    background-color: map-get($theme-colors, third-orange);
+  }
 }
 
 @media (max-width: 425px) {
